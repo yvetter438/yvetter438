@@ -71,3 +71,13 @@
 .info-content a:hover {
     opacity: 0.7;
 } 
+
+.project-description {
+    margin-top: 40px;
+    max-width: 600px;
+}
+
+.project-skills {
+    margin-top: 20px;
+    max-width: 600px;
+}
