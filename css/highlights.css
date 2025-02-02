@@ -1,0 +1,66 @@
+.highlights-section {
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 33.33%;
+    height: 100vh;
+    padding: 100px 40px 40px;
+    border-right: 1px solid #000;
+}
+
+.highlights-title {
+    font-family: 'Futura', sans-serif;
+    font-size: 1.8rem;
+    margin-bottom: 15px;
+    font-weight: 300;
+}
+
+.highlights-underline {
+    width: 100%;
+    height: 1px;
+    background-color: #000;
+    margin-bottom: 30px;
+}
+
+.highlights-list {
+    height: calc(100% - 100px);
+    overflow-y: auto;
+}
+
+.highlight-item {
+    margin-bottom: 30px;
+    padding: 15px;
+    background: #ffffff;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.highlight-item:hover {
+    background: #f0f0f0;
+}
+
+.highlight-item.active {
+    background: #f0f0f0;
+}
+
+.highlight-number {
+    font-family: 'Futura', sans-serif;
+    font-weight: 300;
+    min-width: 25px;
+}
+
+.highlight-divider {
+    width: 1px;
+    height: 20px;
+    background-color: #000;
+    margin: 0 10px;
+}
+
+.highlight-description {
+    font-family: 'Futura', sans-serif;
+    font-weight: 300;
+} 
