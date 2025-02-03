@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>YWV</title>
+    <!-- Add Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Futura:wght@400&display=swap');
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 2rem;
+            border-bottom: 1px solid #000;
+        }
+
+        .name {
+            font-family: 'Futura', sans-serif;
+            font-size: 1.5rem;
+        }
+
+        .social-icons {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .social-icons a {
+            color: #000;
+            text-decoration: none;
+            font-size: 1.5rem;
+        }
+
+        .social-icons a:hover {
+            opacity: 0.7;
+        }
+
+        .highlights-section {
+            position: fixed;
+            left: 0;
+            top: 0;
+            width: 33.33%;
+            height: 100vh;
+            padding: 100px 40px 40px;
+            border-right: 1px solid #000;
+        }
+
+        .highlights-title {
+            font-family: 'Futura', sans-serif;
+            font-size: 1.8rem;
+            margin-bottom: 15px;
+            font-weight: 300;
+        }
+
+        .highlights-underline {
+            width: 100%;
+            height: 1px;
+            background-color: #000;
+            margin-bottom: 30px;
+        }
+
+        .highlights-list {
+            height: calc(100% - 100px);
+            overflow-y: auto;
+        }
+
+        .highlight-item {
+            margin-bottom: 30px;
+            padding: 15px;
+            background: #ffffff;
+            border-radius: 5px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .highlight-item:hover {
+            background: #f0f0f0;
+        }
+
+        .highlight-item.active {
+            background: #f0f0f0;
+        }
+
+        .highlight-number {
+            font-family: 'Futura', sans-serif;
+            font-weight: 300;
+            min-width: 25px;
+        }
+
+        .highlight-divider {
+            width: 1px;
+            height: 20px;
+            background-color: #000;
+            margin: 0 10px;
+        }
+
+        .highlight-description {
+            font-family: 'Futura', sans-serif;
+            font-weight: 300;
+        }
+
+        .main-content {
+            margin-left: 33.33%;
+            padding: 40px;
+            height: calc(100vh - 73px);
+            overflow-y: auto;
+        }
+
+        .project-content {
+            display: none;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .project-content.active {
+            display: block;
+        }
+
+        .project-info {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .info-row {
+            display: flex;
+            gap: 0;
+        }
+
+        .info-row:nth-child(2) {
+            margin-left: 60px;
+        }
+
+        .info-row:nth-child(3) {
+            margin-left: 120px;
+        }
+
+        .info-item {
+            border: 1px solid #000;
+            padding: 15px 25px;
+            min-width: 200px;
+            border-right: none;
+        }
+
+        .info-item:last-child {
+            border-right: 1px solid #000;
+        }
+
+        .info-label {
+            font-family: 'Futura', sans-serif;
+            font-size: 0.8rem;
+            font-weight: 300;
+            margin-bottom: 5px;
+            text-transform: uppercase;
+            opacity: 0.7;
+        }
+
+        .info-content {
+            font-family: 'Futura', sans-serif;
+            font-weight: 300;
+        }
+
+        .info-content a {
+            color: #000;
+            text-decoration: none;
+        }
+
+        .info-content a:hover {
+            opacity: 0.7;
+        }
+
+        .project-description {
+            margin-top: 40px;
+            max-width: 600px;
+        }
+
+        .project-skills {
+            margin-top: 20px;
+            max-width: 600px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="name">Yannick Vetter</div>
+        <div class="social-icons">
+            <a href="https://github.com/yvetter438" target="_blank">
+                <i class="fab fa-github"></i>
+            </a>
+            <a href="https://www.linkedin.com/in/yannickvetter/" target="_blank">
+                <i class="fab fa-linkedin"></i>
+            </a>
+        </div>
+    </header>
+
+    <div class="highlights-section">
+        <h2 class="highlights-title">Highlights</h2>
+        <div class="highlights-underline"></div>
+        <div class="highlights-list">
+            <div class="highlight-item">
+                <span class="highlight-number">01</span>
+                <div class="highlight-divider"></div>
+                <div class="highlight-description">Crave</div>
+            </div>
+            <div class="highlight-item">
+                <span class="highlight-number">02</span>
+                <div class="highlight-divider"></div>
+                <div class="highlight-description">NDSU Skydiving Club</div>
+            </div>
+            <div class="highlight-item">
+                <span class="highlight-number">03</span>
+                <div class="highlight-divider"></div>
+                <div class="highlight-description">Pathway Ventures</div>
+            </div>
+            <div class="highlight-item">
+                <span class="highlight-number">04</span>
+                <div class="highlight-divider"></div>
+                <div class="highlight-description">Bison Fund</div>
+            </div>
+            <div class="highlight-item">
+                <span class="highlight-number">05</span>
+                <div class="highlight-divider"></div>
+                <div class="highlight-description">Great Plains I-CORPS</div>
+            </div>
+            <div class="highlight-item">
+                <span class="highlight-number">06</span>
+                <div class="highlight-divider"></div>
+                <div class="highlight-description">Entrepreneurship Club</div>
+            </div>
+            <div class="highlight-item">
+                <span class="highlight-number">07</span>
+                <div class="highlight-divider"></div>
+                <div class="highlight-description">CFA IRC Competition</div>
+            </div>
+            <div class="highlight-item">
+                <span class="highlight-number">08</span>
+                <div class="highlight-divider"></div>
+                <div class="highlight-description">Case Study</div>
+            </div>
+            <div class="highlight-item">
+                <span class="highlight-number">09</span>
+                <div class="highlight-divider"></div>
+                <div class="highlight-description">Leters of Love</div>
+            </div>
+            <div class="highlight-item">
+                <span class="highlight-number">10</span>
+                <div class="highlight-divider"></div>
+                <div class="highlight-description">OpenLedger Ideathon</div>
+            </div>
+        </div>
+    </div>
+
+    <div class="main-content">
+        <div class="project-content" id="project1">
+            <div class="project-info">
+                <div class="info-row">
+                    <div class="info-item">
+                        <div class="info-label">Title</div>
+                        <div class="info-content">Crave</div>
+                    </div>
+                    <div class="info-item">
+                        <div class="info-label">Date</div>
+                        <div class="info-content">2023</div>
+                    </div>
+                    <div class="info-item">
+                        <div class="info-label">Link</div>
+                        <div class="info-content">
+                            <a href="#" target="_blank">View Project →</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="info-row">
+                    <div class="info-item">
+                        <div class="info-label">Role</div>
+                        <div class="info-content">Project Lead</div>
+                    </div>
+                    <div class="info-item">
+                        <div class="info-label">Client</div>
+                        <div class="info-content">Internal Project</div>
+                    </div>
+                    <div class="info-item">
+                        <div class="info-label">Objective</div>
+                        <div class="info-content">Create a food delivery platform</div>
+                    </div>
+                </div>
+                <div class="info-row">
+                    <div class="info-item">
+                        <div class="info-label">Description</div>
+                        <div class="info-content">Detailed project description goes here...</div>
+                    </div>
+                    <div class="info-item">
+                        <div class="info-label">Skills & Tools</div>
+                        <div class="info-content">React, Node.js, MongoDB, AWS</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Space for project images below -->
+        </div>
+        <div class="project-content" id="project2">
+            <h2>NDSU Skydiving Club</h2>
+            <p>Project details for NDSU Skydiving Club go here...</p>
+        </div>
+        <div class="project-content" id="project3">
+            <h2>Pathway Ventures</h2>
+            <p>Project details for Pathway Ventures go here...</p>
+        </div>
+        <!-- Add more project content divs as needed -->
+    </div>
+
+    <script>
+        const highlightItems = document.querySelectorAll('.highlight-item');
+        const projectContents = document.querySelectorAll('.project-content');
+
+        highlightItems.forEach((item, index) => {
+            item.addEventListener('click', () => {
+                // Remove active class from all highlights and contents
+                highlightItems.forEach(hi => hi.classList.remove('active'));
+                projectContents.forEach(content => content.classList.remove('active'));
+                
+                // Add active class to clicked highlight and corresponding content
+                item.classList.add('active');
+                projectContents[index].classList.add('active');
+            });
+        });
+
+        // Show first project by default
+        highlightItems[0].classList.add('active');
+        projectContents[0].classList.add('active');
+    </script>
+</body>
+</html>
