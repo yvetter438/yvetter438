@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LinkFlow</title>
+    <style>
+        body {
+            background-color: #0a0a0a;
+            color: #e0e0e0;
+            font-family: 'Courier New', monospace;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            line-height: 1.6;
+        }
+
+        h1 {
+            color: #00f2ff;
+            text-align: center;
+            font-size: 2.5em;
+            margin-bottom: 40px;
+            text-shadow: 0 0 10px rgba(0, 191, 255, 0.5);
+        }
+
+        p {
+            color: #00f2ff;
+            text-align: center;
+            font-size: 1.2em;
+        }
+
+        .article-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        .article-item {
+            margin-bottom: 30px;
+            padding: 15px;
+            border-left: 3px solid #00f2ff;
+            transition: all 0.3s ease;
+        }
+
+        .article-item:hover {
+            background-color: rgba(0, 191, 255, 0.1);
+            transform: translateX(10px);
+        }
+
+        .article-link {
+            color: #e0e0e0;
+            text-decoration: none;
+            font-size: 1.1em;
+        }
+
+        .article-link:hover {
+            color: #00f2ff;
+        }
+
+        .date {
+            color: #666;
+            font-size: 0.9em;
+            margin-top: 5px;
+        }
+    </style>
+</head>
+<body>
+    <h1>LinkFlow</h1>
+    <p>A continuous stream of links shaping my challenging my thinking</p>
+
+    <ul class="article-list" id="articleList">
+        <!-- Articles will be loaded here -->
+    </ul>
+
+    <script>
+        // Hardcoded articles
+        const articles = [
+            {
+                title: "The Seattle Freeze",
+                url: "https://www.dailyuw.com/special_sections/the-seattle-freeze/article_5d1ec694-24de-11ed-8355-ebc49114e5a7.html",
+                date: "May 30, 2025"
+            },
+            {
+                title: "Seattle Freeze",
+                url: "https://en.wikipedia.org/wiki/Seattle_Freeze",
+                date: "May 30, 2025"
+            }
+        ];
+
+        // Render articles
+        function renderArticles(articles) {
+            const articleList = document.getElementById('articleList');
+            articleList.innerHTML = articles.map(article => `
+                <li class="article-item">
+                    <a href="${article.url}" class="article-link" target="_blank">${article.title}</a>
+                    <div class="date">${article.date}</div>
+                </li>
+            `).join('');
+        }
+
+        // Initial render
+        renderArticles(articles);
+    </script>
+</body>
+</html> 
