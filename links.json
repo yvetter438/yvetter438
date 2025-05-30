@@ -1,0 +1,14 @@
+{
+    "articles": [
+        {
+            "title": "The Future of Neural Interfaces: Merging Mind and Machine",
+            "url": "https://example.com/neural-interfaces",
+            "date": "March 15, 2024"
+        },
+        {
+            "title": "Quantum Computing: Breaking Through the Digital Frontier",
+            "url": "https://example.com/quantum-computing",
+            "date": "March 12, 2024"
+        }
+    ]
+} 
