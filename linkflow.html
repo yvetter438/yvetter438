@@ -61,11 +61,18 @@
             font-size: 0.9em;
             margin-top: 5px;
         }
+
+        .notes {
+            color: #888;
+            font-size: 0.9em;
+            margin-top: 5px;
+            font-style: italic;
+        }
     </style>
 </head>
 <body>
     <h1>LinkFlow</h1>
-    <p>A continuous stream of links shaping my challenging my thinking</p>
+    <p>A continuous stream of links to things I've read</p>
 
     <ul class="article-list" id="articleList">
         <!-- Articles will be loaded here -->
@@ -74,15 +81,86 @@
     <script>
         // Hardcoded articles
         const articles = [
+            /*
+            Template: Enter at top of list
+            {
+                title: "",
+                url: "",
+                date: "Month Day, 2025",
+                notes: ""
+            },
+            */
+            {
+                title: "Seattle's Rainy Reputation Is Well-Deserved",
+                url: "https://weather.com/science/weather-explainers/news/seattle-rainy-reputation",
+                date: "May 31, 2025",
+                notes: "Rainer than Fargo for sure, but relative to other cities just more rainy days but less downpours"
+            },
+            {
+                title: "A Seattle Local's Guide to Surviving the Darkness",
+                url: "https://www.thrillist.com/lifestyle/seattle/a-locals-guide-to-surviving-seattles-darkness-how-to-make-it-through-a-seattle-winter",
+                date: "May 31, 2025",
+                notes: "Basically like a Fargo winter but I should try and be more proactive about it I think"
+            },
+            {
+                title: "Work-Life Integration",
+                url: "https://haas.berkeley.edu/human-resources/work-life-integration/",
+                date: "May 30, 2025",
+                notes: "Like the idea that work-life balance connotates opposing sides that must be equal, not good enough"
+            },
+            {
+                title: "Amazon Is Killing My Sex Life",
+                url: "https://www.damemagazine.com/2014/05/23/amazon-killing-my-sex-life/",
+                date: "May 30, 2025",
+                notes: "From a female perspective, all complaining again about tech bros"
+            },
+            {
+                title: "Loneliness in Washington tops national average",
+                url: "https://www.axios.com/local/seattle/2024/09/30/washington-loneliness-rates-lonely-isolation-health",
+                date: "May 30, 2025",
+                notes: "Washington is about average for america to be honest"
+            },
+            {
+                title: "'Amageddon': How Amazon's culture is taking a toll on Seattle's future",
+                url: "https://www.geekwire.com/2014/commentary-amageddon-seattles-increasingly-obvious-future/",
+                date: "May 30, 2025",
+                notes: ""
+            },
+            {
+                title: "Seattle likely the Worst City for Dating",
+                url: "https://jeffreifman.com/2018/11/08/seattle-likely-the-worst-city-for-dating/",
+                date: "May 30, 2025",
+                notes: "Complainer"
+            },
+            {
+                title: "What Are the Odds of Finding Your Ideal Partner (in Seattle)?",
+                url: "https://jeffreifman.com/2015/03/19/what-are-the-odds-of-finding-your-ideal-partner-in-seattle/",
+                date: "May 30, 2025",
+                notes: "Dumb article"
+            },
+            {
+                title: "Peepless in Seattle: Dating, Friendship, and the Seattle Freeze After Forty",
+                url: "https://jeffreifman.com/2015/03/22/peepless-in-seattle-dating-friendship-and-the-seattle-freeze-after-forty/",
+                date: "May 30, 2025",
+                notes: "Tech bro moves to Seattle and compains on the internet"
+            },
+            {
+                title: "If you weren't born in Seattle or the Northwest, you'll never be one of us",
+                url: "https://www.seattletimes.com/pacific-nw-magazine/if-you-werenrsquot-born-in-seattle-or-the-northwest-yoursquoll-never-be-one-of-us/",
+                date: "May 30, 2025",
+                notes: ""
+            },
             {
                 title: "The Seattle Freeze",
                 url: "https://www.dailyuw.com/special_sections/the-seattle-freeze/article_5d1ec694-24de-11ed-8355-ebc49114e5a7.html",
-                date: "May 30, 2025"
+                date: "May 30, 2025",
+                notes: ""
             },
             {
                 title: "Seattle Freeze",
                 url: "https://en.wikipedia.org/wiki/Seattle_Freeze",
-                date: "May 30, 2025"
+                date: "May 30, 2025",
+                notes: "Wikipedia overview of the Seattle Freeze concept"
             }
         ];
 
@@ -93,6 +171,7 @@
                 <li class="article-item">
                     <a href="${article.url}" class="article-link" target="_blank">${article.title}</a>
                     <div class="date">${article.date}</div>
+                    ${article.notes ? `<div class="notes">${article.notes}</div>` : ''}
                 </li>
             `).join('');
         }
