@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About - YWV</title>
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="image2vector.svg">
+    <link rel="alternate icon" type="image/png" href="image2vector.svg">
+    <!-- Add Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap');
+        
+        :root {
+            --neon-blue: #00f2ff;
+            --neon-pink: #ff00ff;
+            --dark-bg: #0a0a0a;
+            --darker-bg: #050505;
+            --text-color: #e0e0e0;
+            --accent-color: #00f2ff;
+        }
+
+        body {
+            background-color: var(--dark-bg);
+            color: var(--text-color);
+            font-family: 'Share Tech Mono', monospace;
+            margin: 0;
+            padding: 0;
+            line-height: 1.6;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        header {
+            background-color: var(--darker-bg);
+            padding: 20px;
+            border-bottom: 2px solid var(--neon-blue);
+            box-shadow: 0 0 20px rgba(0, 242, 255, 0.2);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .name {
+            color: var(--neon-blue);
+            font-size: 2em;
+            text-shadow: 0 0 10px rgba(0, 242, 255, 0.5);
+        }
+
+        .social-icons a {
+            color: var(--text-color);
+            margin-left: 15px;
+            transition: color 0.3s ease;
+        }
+
+        .social-icons a:hover {
+            color: var(--neon-blue);
+        }
+
+        .about-container {
+            max-width: 800px;
+            margin: 40px auto;
+            padding: 20px;
+            background: rgba(0, 242, 255, 0.05);
+            border: 1px solid var(--neon-blue);
+            box-shadow: 0 0 30px rgba(0, 242, 255, 0.1);
+        }
+
+        .about-header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .about-title {
+            color: var(--neon-blue);
+            font-size: 2.5em;
+            margin-bottom: 10px;
+            text-shadow: 0 0 10px rgba(0, 242, 255, 0.5);
+        }
+
+        .about-subtitle {
+            color: var(--text-color);
+            font-size: 1.2em;
+            opacity: 0.8;
+        }
+
+        .about-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .about-section {
+            background: rgba(0, 242, 255, 0.05);
+            padding: 20px;
+            border: 1px solid var(--neon-blue);
+            transition: all 0.3s ease;
+        }
+
+        .about-section:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 0 20px rgba(0, 242, 255, 0.2);
+        }
+
+        .section-title {
+            color: var(--neon-blue);
+            font-size: 1.5em;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+        }
+
+        .section-title i {
+            margin-right: 10px;
+        }
+
+        .section-content {
+            color: var(--text-color);
+            line-height: 1.8;
+        }
+
+        .location-info {
+            display: flex;
+            align-items: center;
+            margin-top: 10px;
+        }
+
+        .location-info i {
+            color: var(--neon-blue);
+            margin-right: 10px;
+        }
+
+        @media (max-width: 768px) {
+            .about-content {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="name">Yannick Vetter</div>
+        <div class="social-icons">
+            <a href="https://github.com/yvetter438" target="_blank">
+                <i class="fab fa-github"></i>
+            </a>
+            <a href="https://www.linkedin.com/in/yannickvetter/" target="_blank">
+                <i class="fab fa-linkedin"></i>
+            </a>
+        </div>
+    </header>
+
+    <div class="about-container">
+        <div class="about-header">
+            <h1 class="about-title">About Me</h1>
+            <div class="about-subtitle">Developer & Entrepreneur</div>
+            <div class="location-info" style="justify-content: center; margin-top: 15px;">
+                <i class="fas fa-map-marker-alt"></i>
+                <span>Seattle, Washington</span>
+            </div>
+        </div>
+
+        <div class="about-content">
+            <div class="about-section">
+                <div class="section-title">
+                    <i class="fas fa-user"></i>
+                    Bio
+                </div>
+                <div class="section-content">
+                    <p>I'm a passionate developer and entrepreneur based in Fargo, ND and Seattle, WA. Currently pursuing my MS in Entrepreneurship at UW, I combine technical expertise with entrepreneurial spirit to create innovative solutions.</p>
+                    <p>My focus areas include web development, mobile applications, and startup ventures. I'm particularly interested in creating user-centric applications that solve real-world problems.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

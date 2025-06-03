@@ -1,0 +1,827 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>YWV</title>
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="image2vector.svg">
+    <link rel="alternate icon" type="image/png" href="image2vector.svg">
+    <!-- Add Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap');
+        
+        :root {
+            --neon-blue: #00f2ff;
+            --neon-pink: #ff00ff;
+            --dark-bg: #0a0a0a;
+            --darker-bg: #050505;
+            --text-color: #e0e0e0;
+            --accent-color: #00f2ff;
+        }
+
+        body {
+            background-color: var(--dark-bg);
+            color: var(--text-color);
+            font-family: 'Share Tech Mono', monospace;
+            margin: 0;
+            padding: 0;
+            line-height: 1.6;
+        }
+
+        header {
+            background-color: var(--darker-bg);
+            padding: 20px;
+            border-bottom: 2px solid var(--neon-blue);
+            box-shadow: 0 0 20px rgba(0, 242, 255, 0.2);
+        }
+
+        .name {
+            color: var(--neon-blue);
+            font-size: 2em;
+            text-shadow: 0 0 10px rgba(0, 242, 255, 0.5);
+        }
+
+        .social-icons a {
+            color: var(--text-color);
+            margin-left: 15px;
+            transition: color 0.3s ease;
+        }
+
+        .social-icons a:hover {
+            color: var(--neon-blue);
+        }
+
+        .highlights-section {
+            padding: 40px 20px;
+            background: linear-gradient(to bottom, var(--darker-bg), var(--dark-bg));
+        }
+
+        .highlights-title {
+            color: var(--neon-blue);
+            text-align: center;
+            font-size: 2em;
+            margin-bottom: 20px;
+            text-shadow: 0 0 10px rgba(0, 242, 255, 0.5);
+        }
+
+        .highlights-underline {
+            height: 2px;
+            background: linear-gradient(to right, transparent, var(--neon-blue), transparent);
+            margin-bottom: 30px;
+        }
+
+        .highlights-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            padding: 20px;
+        }
+
+        .highlight-item {
+            background: rgba(0, 242, 255, 0.05);
+            border: 1px solid var(--neon-blue);
+            padding: 15px;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .highlight-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 0 20px rgba(0, 242, 255, 0.3);
+        }
+
+        .highlight-item::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(
+                90deg,
+                transparent,
+                rgba(0, 242, 255, 0.2),
+                transparent
+            );
+            transition: 0.5s;
+        }
+
+        .highlight-item:hover::before {
+            left: 100%;
+        }
+
+        .highlight-number {
+            color: var(--neon-blue);
+            font-size: 1.2em;
+            margin-right: 10px;
+        }
+
+        .highlight-divider {
+            height: 1px;
+            background: var(--neon-blue);
+            margin: 10px 0;
+            opacity: 0.5;
+        }
+
+        .highlight-description {
+            color: var(--text-color);
+        }
+
+        .main-content {
+            padding: 20px;
+        }
+
+        .project-content {
+            background: rgba(0, 242, 255, 0.05);
+            border: 1px solid var(--neon-blue);
+            margin-bottom: 30px;
+            padding: 20px;
+            transition: all 0.3s ease;
+        }
+
+        .project-content:hover {
+            box-shadow: 0 0 30px rgba(0, 242, 255, 0.2);
+        }
+
+        .project-info {
+            margin-bottom: 20px;
+        }
+
+        .info-row {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin-bottom: 20px;
+        }
+
+        .info-item {
+            background: rgba(0, 242, 255, 0.05);
+            padding: 15px;
+            border: 1px solid var(--neon-blue);
+        }
+
+        .info-label {
+            color: var(--neon-blue);
+            font-size: 0.9em;
+            margin-bottom: 5px;
+        }
+
+        .info-content {
+            color: var(--text-color);
+        }
+
+        .info-content a {
+            color: var(--neon-blue);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .info-content a:hover {
+            color: var(--neon-pink);
+        }
+
+        .website-embed, .pdf-embed {
+            border: 1px solid var(--neon-blue);
+            margin-top: 20px;
+        }
+
+        .visit-site-cta {
+            text-align: center;
+            padding: 20px;
+            background: rgba(0, 242, 255, 0.05);
+            border: 1px solid var(--neon-blue);
+        }
+
+        .cta-button {
+            display: inline-block;
+            padding: 10px 20px;
+            background: transparent;
+            border: 1px solid var(--neon-blue);
+            color: var(--neon-blue);
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .cta-button:hover {
+            background: var(--neon-blue);
+            color: var(--dark-bg);
+        }
+
+        @media (max-width: 768px) {
+            .highlights-list {
+                grid-template-columns: 1fr;
+            }
+
+            .info-row {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="name">Yannick Vetter</div>
+        <div class="social-icons">
+            <a href="https://github.com/yvetter438" target="_blank">
+                <i class="fab fa-github"></i>
+            </a>
+            <a href="https://www.linkedin.com/in/yannickvetter/" target="_blank">
+                <i class="fab fa-linkedin"></i>
+            </a>
+        </div>
+    </header>
+
+    <div class="highlights-section">
+        <h2 class="highlights-title">Highlights</h2>
+        <div class="highlights-underline"></div>
+        <div class="highlights-list">
+            <div class="highlight-item">
+                <span class="highlight-number">01</span>
+                <div class="highlight-divider"></div>
+                <div class="highlight-description">Crave</div>
+            </div>
+            <div class="highlight-item">
+                <span class="highlight-number">02</span>
+                <div class="highlight-divider"></div>
+                <div class="highlight-description">NDSU Skydiving Club</div>
+            </div>
+            <div class="highlight-item">
+                <span class="highlight-number">03</span>
+                <div class="highlight-divider"></div>
+                <div class="highlight-description">Pathway Ventures</div>
+            </div>
+            <div class="highlight-item">
+                <span class="highlight-number">04</span>
+                <div class="highlight-divider"></div>
+                <div class="highlight-description">Great Plains I-CORPS</div>
+            </div>
+            <div class="highlight-item">
+                <span class="highlight-number">05</span>
+                <div class="highlight-divider"></div>
+                <div class="highlight-description">Bison Fund</div>
+            </div>
+            <div class="highlight-item">
+                <span class="highlight-number">06</span>
+                <div class="highlight-divider"></div>
+                <div class="highlight-description">Entrepreneurship Club</div>
+            </div>
+            <div class="highlight-item">
+                <span class="highlight-number">07</span>
+                <div class="highlight-divider"></div>
+                <div class="highlight-description">CFA IRC Competition</div>
+            </div>
+            <div class="highlight-item">
+                <span class="highlight-number">08</span>
+                <div class="highlight-divider"></div>
+                <div class="highlight-description">Case Study</div>
+            </div>
+            <div class="highlight-item">
+                <span class="highlight-number">09</span>
+                <div class="highlight-divider"></div>
+                <div class="highlight-description">Letters of Love</div>
+            </div>
+            <div class="highlight-item">
+                <span class="highlight-number">10</span>
+                <div class="highlight-divider"></div>
+                <div class="highlight-description">OpenLedger Ideathon</div>
+            </div>
+        </div>
+    </div>
+
+    <div class="main-content">
+        <div class="project-content" id="project1">
+            <div class="project-info">
+                <div class="info-row">
+                    <div class="info-item">
+                        <div class="info-label">Title</div>
+                        <div class="info-content">Crave</div>
+                    </div>
+                    <div class="info-item">
+                        <div class="info-label">Date</div>
+                        <div class="info-content">2025</div>
+                    </div>
+                    <div class="info-item">
+                        <div class="info-label">Role</div>
+                        <div class="info-content">Founder</div>
+                    </div>
+                    <div class="info-item">
+                        <div class="info-label">Client</div>
+                        <div class="info-content">Crave</div>
+                    </div>
+                    <div class="info-item">
+                        <div class="info-label">Link</div>
+                        <div class="info-content">
+                            <a href="https://github.com/yvetter438/Crave" target="_blank">View Project →</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="info-row">
+                    <div class="info-item">
+                        <div class="info-label">Objective</div>
+                        <div class="info-content">Create a food discovery app</div>
+                    </div>
+                    <div class="info-item">
+                        <div class="info-label">Description</div>
+                        <div class="info-content">Redefine the online food experience</div>
+                    </div>
+                    <div class="info-item">
+                        <div class="info-label">Skills & Tools</div>
+                        <div class="info-content">React, React Native, Supabase, Typescript, Expo, Git, Github</div>
+                    </div>
+                </div>
+            </div>
+            <div class="website-embed">
+                <iframe 
+                    src="https://yvetter438.github.io/Crave/"
+                    width="100%" 
+                    height="600px" 
+                    frameborder="0"
+                    loading="lazy"
+                    allowfullscreen>
+                </iframe>
+            </div>
+            <!-- Space for project images below -->
+        </div>
+        <div class="project-content" id="project2">
+            <div class="project-info">
+                <div class="info-row">
+                    <div class="info-item">
+                        <div class="info-label">Title</div>
+                        <div class="info-content">NDSU Skydiving Club Website</div>
+                    </div>
+                    <div class="info-item">
+                        <div class="info-label">Date</div>
+                        <div class="info-content">2024</div>
+                    </div>
+                    <div class="info-item">
+                        <div class="info-label">Role</div>
+                        <div class="info-content">Founder, Web Developer</div>
+                    </div>
+                    <div class="info-item">
+                        <div class="info-label">Client</div>
+                        <div class="info-content">NDSU Skydiving Club</div>
+                    </div>
+                    <div class="info-item">
+                        <div class="info-label">Link</div>
+                        <div class="info-content">
+                            <a href="https://ndsuskydivingclub.com/" target="_blank">View Project →</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="info-row">
+                    <div class="info-item">
+                        <div class="info-label">Objective</div>
+                        <div class="info-content">Create a website for the NDSU Skydiving Club</div>
+                    </div>
+                    <div class="info-item">
+                        <div class="info-label">Description</div>
+                        <div class="info-content">Create a minimalistic visual experience to represent the NDSU Skydiving Club</div>
+                    </div>
+                    <div class="info-item">
+                        <div class="info-label">Skills & Tools</div>
+                        <div class="info-content">HTML, CSS, JavaScript, Github, Github Pages, GoDaddy</div>
+                    </div>
+                </div>
+            </div>
+            <div class="website-embed">
+                <iframe 
+                    src="https://ndsuskydivingclub.com/"
+                    width="100%" 
+                    height="600px" 
+                    frameborder="0"
+                    loading="lazy"
+                    allowfullscreen>
+                </iframe>
+            </div>
+        </div>
+        <div class="project-content" id="project3">
+            <div class="project-info">
+                <div class="info-row">
+                    <div class="info-item">
+                        <div class="info-label">Title</div>
+                        <div class="info-content">Pathway Ventures Website</div>
+                    </div>
+                    <div class="info-item">
+                        <div class="info-label">Date</div>
+                        <div class="info-content">2024 - 2025</div>
+                    </div>
+                    <div class="info-item">
+                        <div class="info-label">Role</div>
+                        <div class="info-content">Vice President, Director of Marketing & IT</div>
+                    </div>
+                    <div class="info-item">
+                        <div class="info-label">Client</div>
+                        <div class="info-content">Pathway Ventures</div>
+                    </div>
+                    <div class="info-item">
+                        <div class="info-label">Link</div>
+                        <div class="info-content">
+                            <a href="https://www.pathwayventuresndsu.com/" target="_blank">View Project →</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="info-row">
+                    <div class="info-item">
+                        <div class="info-label">Objective</div>
+                        <div class="info-content">Maintain & update the Pathway Ventures website</div>
+                    </div>
+                    <div class="info-item">
+                        <div class="info-label">Description</div>
+                        <div class="info-content">Worked with media and webflow to update and upgrade website when needed</div>
+                    </div>
+                    <div class="info-item">
+                        <div class="info-label">Skills & Tools</div>
+                        <div class="info-content">Webflow, Canva, Assorted Media Tools</div>
+                    </div>
+                </div>
+            </div>
+            <div class="website-embed">
+                <iframe 
+                    src="https://www.pathwayventuresndsu.com/"
+                    width="100%" 
+                    height="600px" 
+                    frameborder="0"
+                    loading="lazy"
+                    allowfullscreen>
+                </iframe>
+            </div>
+        </div>
+        <div class="project-content" id="project4">
+            <div class="project-info">
+                <div class="info-row">
+                    <div class="info-item">
+                        <div class="info-label">Title</div>
+                        <div class="info-content">Great Plains I-CORPS Website</div>
+                    </div>
+                    <div class="info-item">
+                        <div class="info-label">Date</div>
+                        <div class="info-content">2022 - 2023</div>
+                    </div>
+                    <div class="info-item">
+                        <div class="info-label">Role</div>
+                        <div class="info-content">Web Developer Intern</div>
+                    </div>
+                    <div class="info-item">
+                        <div class="info-label">Client</div>
+                        <div class="info-content">NSF I-CORPS Great Plains Region</div>
+                    </div>
+                    <div class="info-item">
+                        <div class="info-label">Link</div>
+                        <div class="info-content">
+                            <a href="https://gp-icorps.org/" target="_blank">View Project →</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="info-row">
+                    <div class="info-item">
+                        <div class="info-label">Objective</div>
+                        <div class="info-content">Designed and developed a website for the NSF I-CORPS Great Plains Region</div>
+                    </div>
+                    <div class="info-item">
+                        <div class="info-label">Description</div>
+                        <div class="info-content">Worked Great Plains I-CORPS to start building out their website using WordPress and Elementor</div>
+                    </div>
+                    <div class="info-item">
+                        <div class="info-label">Skills & Tools</div>
+                        <div class="info-content">WordPress, Elementor, SEO Tools</div>
+                    </div>
+                </div>
+            </div>
+            <div class="visit-site-cta">
+                <p>This website cannot be embedded due to security settings.</p>
+                <a href="https://gp-icorps.org/" target="_blank" class="cta-button">
+                    Visit Website <i class="fas fa-external-link-alt"></i>
+                </a>
+            </div>
+        </div>
+        <div class="project-content" id="project5">
+            <div class="project-info">
+                <div class="info-row">
+                    <div class="info-item">
+                        <div class="info-label">Title</div>
+                        <div class="info-content">Bison Fund Website</div>
+                    </div>
+                    <div class="info-item">
+                        <div class="info-label">Date</div>
+                        <div class="info-content">2021 - 2023</div>
+                    </div>
+                    <div class="info-item">
+                        <div class="info-label">Role</div>
+                        <div class="info-content">Public Relations Officer</div>
+                    </div>
+                    <div class="info-item">
+                        <div class="info-label">Client</div>
+                        <div class="info-content">Bison Fund</div>
+                    </div>
+                    <div class="info-item">
+                        <div class="info-label">Link</div>
+                        <div class="info-content">
+                            <a href="https://kylerberger.wixsite.com/my-site" target="_blank">View Project →</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="info-row">
+                    <div class="info-item">
+                        <div class="info-label">Objective</div>
+                        <div class="info-content">Update the Bison Fund website</div>
+                    </div>
+                    <div class="info-item">
+                        <div class="info-label">Description</div>
+                        <div class="info-content">Worked on a Wix website to update when needed, currently discontinued</div>
+                    </div>
+                    <div class="info-item">
+                        <div class="info-label">Skills & Tools</div>
+                        <div class="info-content">Wix</div>
+                    </div>
+                </div>
+            </div>
+            <div class="website-embed">
+                <iframe 
+                    src="https://kylerberger.wixsite.com/my-site"
+                    width="100%" 
+                    height="600px" 
+                    frameborder="0"
+                    loading="lazy"
+                    allowfullscreen>
+                </iframe>
+            </div>
+        </div>
+        <div class="project-content" id="project6">
+            <div class="project-info">
+                <div class="info-row">
+                    <div class="info-item">
+                        <div class="info-label">Title</div>
+                        <div class="info-content">NDSU Entrepreneurship Club Social Media</div>
+                    </div>
+                    <div class="info-item">
+                        <div class="info-label">Date</div>
+                        <div class="info-content">2022 - 2025</div>
+                    </div>
+                    <div class="info-item">
+                        <div class="info-label">Role</div>
+                        <div class="info-content">President</div>
+                    </div>
+                    <div class="info-item">
+                        <div class="info-label">Client</div>
+                        <div class="info-content">NDSU Entrepreneurship Club</div>
+                    </div>
+                    <div class="info-item">
+                        <div class="info-label">Link</div>
+                        <div class="info-content">
+                            <a href="https://www.instagram.com/ndsuentrepreneurshipclub/" target="_blank">View Project →</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="info-row">
+                    <div class="info-item">
+                        <div class="info-label">Objective</div>
+                        <div class="info-content">Create content for Instagram and LinkedIn</div>
+                    </div>
+                    <div class="info-item">
+                        <div class="info-label">Description</div>
+                        <div class="info-content">Promoted club events and activities by creating appealing posts and media</div>
+                    </div>
+                    <div class="info-item">
+                        <div class="info-label">Skills & Tools</div>
+                        <div class="info-content">Canva, Instagram, LinkedIn</div>
+                    </div>
+                </div>
+            </div>
+            <div class="pdf-embed">
+                <object
+                    data="pdfs/entrepreneurship-club.pdf"
+                    type="application/pdf"
+                    width="100%"
+                    height="600px">
+                    <p>Unable to display PDF. <a href="pdfs/entrepreneurship-club.pdf">Download</a> instead.</p>
+                </object>
+            </div> 
+        </div>
+        <div class="project-content" id="project7">
+            <div class="project-info">
+                <div class="info-row">
+                    <div class="info-item">
+                        <div class="info-label">Title</div>
+                        <div class="info-content">CFA Institute Research Challenge</div>
+                    </div>
+                    <div class="info-item">
+                        <div class="info-label">Date</div>
+                        <div class="info-content">2022 - 2023</div>
+                    </div>
+                    <div class="info-item">
+                        <div class="info-label">Role</div>
+                        <div class="info-content">Team Member</div>
+                    </div>
+                    <div class="info-item">
+                        <div class="info-label">Client</div>
+                        <div class="info-content">CFA Society Minnesota</div>
+                    </div>
+                    <div class="info-item">
+                        <div class="info-label">Link</div>
+                        <div class="info-content">
+                            <a href="https://www.cfasociety.org/minnesota/society-events/research-challenge" target="_blank">View Project →</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="info-row">
+                    <div class="info-item">
+                        <div class="info-label">Objective</div>
+                        <div class="info-content">Pitch Buy, Hold, Sell recommendation for General Mills</div>
+                    </div>
+                    <div class="info-item">
+                        <div class="info-label">Description</div>
+                        <div class="info-content">Conducted in-depth analysis of General Mills and presented to a panel of industry professionals</div>
+                    </div>
+                    <div class="info-item">
+                        <div class="info-label">Skills & Tools</div>
+                        <div class="info-content">Due Diligence, Financial Modeling, Excel, DCF</div>
+                    </div>
+                </div>
+            </div>
+                <div id="presentation" class="tab-content">
+                    <div class="pdf-embed">
+                        <object
+                            data="pdfs/cfa-presentation.pdf"
+                            type="application/pdf"
+                            width="100%"
+                            height="600px">
+                            <p>Unable to display PDF. <a href="pdfs/cfa-presentation.pdf">Download</a> instead.</p>
+                        </object>
+                    </div>
+                </div>
+
+                <div id="paper" class="tab-content active">
+                    <div class="pdf-embed">
+                        <object
+                            data="pdfs/cfa-report.pdf"
+                            type="application/pdf"
+                            width="100%"
+                            height="600px">
+                            <p>Unable to display PDF. <a href="pdfs/cfa-report.pdf">Download</a> instead.</p>
+                        </object>
+                    </div>
+                </div>
+        </div>
+        <div class="project-content" id="project8">
+            <div class="project-info">
+                <div class="info-row">
+                    <div class="info-item">
+                        <div class="info-label">Title</div>
+                        <div class="info-content">Case Study</div>
+                    </div>
+                    <div class="info-item">
+                        <div class="info-label">Date</div>
+                        <div class="info-content">2024</div>
+                    </div>
+                    <div class="info-item">
+                        <div class="info-label">Role</div>
+                        <div class="info-content">Analyst</div>
+                    </div>
+                    <div class="info-item">
+                        <div class="info-label">Client</div>
+                        <div class="info-content">Redacted</div>
+                    </div>
+                    <div class="info-item">
+                        <div class="info-label">Link</div>
+                        <div class="info-content">
+                            <a href="#" target="_blank">View Project →</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="info-row">
+                    <div class="info-item">
+                        <div class="info-label">Objective</div>
+                        <div class="info-content">Propose 3 sites for the construction of a 100MW AI Data Center</div>
+                    </div>
+                    <div class="info-item">
+                        <div class="info-label">Description</div>
+                        <div class="info-content">Conducted diligence on data center industry and proposed 3 sites. Report started and completed within 72 hours.</div>
+                    </div>
+                    <div class="info-item">
+                        <div class="info-label">Skills & Tools</div>
+                        <div class="info-content">Research</div>
+                    </div>
+                </div>
+            </div>
+            <div class="pdf-embed">
+                <object
+                    data="pdfs/case-study.pdf"
+                    type="application/pdf"
+                    width="100%"
+                    height="600px">
+                    <p>Unable to display PDF. <a href="pdfs/cfa-report.pdf">Download</a> instead.</p>
+                </object>
+            </div>
+        </div>
+        <div class="project-content" id="project9">
+            <div class="project-info">
+                <div class="info-row">
+                    <div class="info-item">
+                        <div class="info-label">Title</div>
+                        <div class="info-content">Letters of Love Social Media</div>
+                    </div>
+                    <div class="info-item">
+                        <div class="info-label">Date</div>
+                        <div class="info-content">2024 - 2025</div>
+                    </div>
+                    <div class="info-item">
+                        <div class="info-label">Role</div>
+                        <div class="info-content">Social Media Manager</div>
+                    </div>
+                    <div class="info-item">
+                        <div class="info-label">Client</div>
+                        <div class="info-content">NDSU Letters of Love</div>
+                    </div>
+                    <div class="info-item">
+                        <div class="info-label">Link</div>
+                        <div class="info-content">
+                            <a href="https://www.instagram.com/lettersoflovendsu/" target="_blank">View Project →</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="info-row">
+                    <div class="info-item">
+                        <div class="info-label">Objective</div>
+                        <div class="info-content">Manage social media accounts for NDSU Letters of Love</div>
+                    </div>
+                    <div class="info-item">
+                        <div class="info-label">Description</div>
+                        <div class="info-content">Created content for Instagram to promote upcoming events and meetings.</div>
+                    </div>
+                    <div class="info-item">
+                        <div class="info-label">Skills & Tools</div>
+                        <div class="info-content">Canva, Instagram</div>
+                    </div>
+                </div>
+            </div>
+            <div class="pdf-embed">
+                <object
+                    data="pdfs/letters-of-love.pdf"
+                    type="application/pdf"
+                    width="100%"
+                    height="600px">
+                    <p>Unable to display PDF. <a href="pdfs/letters-of-love.pdf">Download</a> instead.</p>
+                </object>
+            </div> 
+        </div>
+        <div class="project-content" id="project10">
+            <div class="project-info">
+                <div class="info-row">
+                    <div class="info-item">
+                        <div class="info-label">Title</div>
+                        <div class="info-content">OpenLedger Ideathon</div>
+                    </div>
+                    <div class="info-item">
+                        <div class="info-label">Date</div>
+                        <div class="info-content">2024</div>
+                    </div>
+                    <div class="info-item">
+                        <div class="info-label">Role</div>
+                        <div class="info-content">Participant</div>
+                    </div>
+                    <div class="info-item">
+                        <div class="info-label">Client</div>
+                        <div class="info-content">OpenLedger</div>
+                    </div>
+                    <div class="info-item">
+                        <div class="info-label">Link</div>
+                        <div class="info-content">
+                            <a href="https://devpost.com/software/nideo?ref_content=my-projects-tab&ref_feature=my_projects" target="_blank">View Project →</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="info-row">
+                    <div class="info-item">
+                        <div class="info-label">Objective</div>
+                        <div class="info-content">Create a 5-slide deck for a specialized language model idea + data source</div>
+                    </div>
+                    <div class="info-item">
+                        <div class="info-label">Description</div>
+                        <div class="info-content">Participated in a fun ideathon over winter break</div>
+                    </div>
+                    <div class="info-item">
+                        <div class="info-label">Skills & Tools</div>
+                        <div class="info-content">Google Slides</div>
+                    </div>
+                </div>
+            </div>
+            <div class="pdf-embed">
+                <object
+                    data="pdfs/openledger.pdf"
+                    type="application/pdf"
+                    width="100%"
+                    height="600px">
+                    <p>Unable to display PDF. <a href="pdfs/openledger.pdf">Download</a> instead.</p>
+                </object>
+            </div>
+        </div>
+        <!-- Add more project content divs as needed -->
+    </div>
+
+    <script src="js/main.js"></script>
+       
+</body>
+</html>
