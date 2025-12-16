@@ -10,26 +10,40 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            height: 100vh;
+            min-height: 100vh;
             margin: 0;
             font-family: sans-serif;
             background: #fff;
             color: #111;
+            padding: 40px 20px;
+            box-sizing: border-box;
         }
         .project-list {
             list-style: none;
             padding: 0;
             margin: 0;
             font-size: 1.3em;
-            text-align: left;
+            max-width: 600px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
         }
         .project-list li {
             margin-bottom: 18px;
+            width: 100%;
+            max-width: 600px;
+        }
+        .project-item-wrapper {
+            border-right: 1px solid #111;
+            padding: 16px 20px;
+            text-align: left;
         }
         .project-list a {
             color: #111;
             text-decoration: none;
             transition: text-decoration 0.2s;
+            cursor: pointer;
+            display: block;
         }
         .project-list a:hover {
             text-decoration: underline;
@@ -44,21 +58,91 @@
             letter-spacing: 0.04em;
             text-decoration: none;
         }
+        .project-details {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease;
+            font-size: 0.85em;
+            line-height: 1.8;
+            margin-top: 0;
+            text-align: left;
+        }
+        .project-details.show {
+            max-height: 500px;
+            margin-top: 12px;
+        }
+        .project-details div {
+            margin-bottom: 6px;
+        }
     </style>
 </head>
 <body>
     <a class="home-label" href="/">Home</a>
     <ul class="project-list">
-        <li><a href="projects/crave.html">Crave</a></li>
-        <li><a href="projects/ndsu-skydiving-club.html">NDSU Skydiving Club</a></li>
-        <li><a href="projects/pathway-ventures.html">Pathway Ventures</a></li>
-        <li><a href="projects/great-plains-icorps.html">Great Plains I-CORPS</a></li>
-        <li><a href="projects/bison-fund.html">Bison Fund</a></li>
-        <li><a href="projects/ndsu-entrepreneurship-club.html">NDSU Entrepreneurship Club</a></li>
-        <li><a href="projects/cfa-institute-research-challenge.html">CFA Institute Research Challenge</a></li>
-        <li><a href="projects/case-study.html">Case Study</a></li>
-        <li><a href="projects/letters-of-love.html">Letters of Love</a></li>
-        <li><a href="projects/openledger-ideathon.html">OpenLedger Ideathon</a></li>
+        <li>
+            <div class="project-item-wrapper">
+                <a onclick="toggleDetails(event, 'craveDetails')">Crave</a>
+                <div class="project-details" id="craveDetails">
+                    <div>A food discovery app redefining the online food experience</div>
+                    <div><a href="https://www.crave.food/" target="_blank" rel="noopener">https://www.crave.food/</a></div>
+                </div>
+            </div>
+        </li>
+        <li>
+            <div class="project-item-wrapper">
+                <a onclick="toggleDetails(event, 'dublaunchDetails')">DubLaunch</a>
+                <div class="project-details" id="dublaunchDetails">
+                    <div>Product Hunt for UW students - discover, launch, and support innovative projects from the University of Washington community.</div>
+                    <div><a href="https://www.dublaunch.io/" target="_blank" rel="noopener">https://www.dublaunch.io/</a></div>
+                </div>
+            </div>
+        </li>
+        <li>
+            <div class="project-item-wrapper">
+                <a onclick="toggleDetails(event, 'taskmatrixxDetails')">TaskMatrixx</a>
+                <div class="project-details" id="taskmatrixxDetails">
+                    <div>Organize your tasks with the Eisenhower Matrix - prioritize what matters most.</div>
+                    <div><a href="https://www.taskmatrixx.com/" target="_blank" rel="noopener">https://www.taskmatrixx.com/</a></div>
+                </div>
+            </div>
+        </li>
+        <li>
+            <div class="project-item-wrapper">
+                <a onclick="toggleDetails(event, 'knoDetails')">KNO</a>
+                <div class="project-details" id="knoDetails">
+                    <div>A minimalistic daily reflection app to help you pause and reflect on your life.</div>
+                    <div><a href="https://www.knothyself.app/" target="_blank" rel="noopener">https://www.knothyself.app/</a></div>
+                </div>
+            </div>
+        </li>
+        <li>
+            <div class="project-item-wrapper">
+                <a onclick="toggleDetails(event, 'skydivingDetails')">NDSU Skydiving Club</a>
+                <div class="project-details" id="skydivingDetails">
+                    <div>A minimalistic website representing the NDSU Skydiving Club.</div>
+                    <div><a href="https://ndsuskydivingclub.com/" target="_blank" rel="noopener">https://ndsuskydivingclub.com/</a></div>
+                </div>
+            </div>
+        </li>
+        <li>
+            <div class="project-item-wrapper">
+                <a onclick="toggleDetails(event, 'hungryDetails')">theinternetishungry.com</a>
+                <div class="project-details" id="hungryDetails">
+                    <div>Promotional Website for Crave marketing posters.</div>
+                    <div><a href="https://theinternetishungry.com/" target="_blank" rel="noopener">https://theinternetishungry.com/</a></div>
+                </div>
+            </div>
+        </li>
     </ul>
+
+    <script>
+        function toggleDetails(event, detailsId) {
+            event.preventDefault();
+            const details = document.getElementById(detailsId);
+            const listItem = event.target.closest('li');
+            details.classList.toggle('show');
+            listItem.classList.toggle('expanded');
+        }
+    </script>
 </body>
 </html>

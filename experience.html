@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Yannick Vetter</title>
+    <link rel="icon" type="image/svg+xml" href="assets/image2vector.svg">
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+            font-family: sans-serif;
+            background: #fff;
+            color: #111;
+            padding: 40px 20px;
+            box-sizing: border-box;
+        }
+        .project-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            font-size: 1.3em;
+            max-width: 600px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .project-list li {
+            margin-bottom: 18px;
+            width: 100%;
+            max-width: 600px;
+        }
+        .project-item-wrapper {
+            border-right: 1px solid #111;
+            padding: 16px 20px;
+            text-align: left;
+        }
+        .project-list a {
+            color: #111;
+            text-decoration: none;
+            transition: text-decoration 0.2s;
+            cursor: pointer;
+            display: block;
+        }
+        .project-list a:hover {
+            text-decoration: underline;
+        }
+        .home-label {
+            position: absolute;
+            top: 24px;
+            left: 32px;
+            font-size: 1.1em;
+            color: #111;
+            opacity: 0.7;
+            letter-spacing: 0.04em;
+            text-decoration: none;
+        }
+        .project-details {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease;
+            font-size: 0.85em;
+            line-height: 1.8;
+            margin-top: 0;
+            text-align: left;
+        }
+        .project-details.show {
+            max-height: 500px;
+            margin-top: 12px;
+        }
+        .project-details div {
+            margin-bottom: 6px;
+        }
+    </style>
+</head>
+<body>
+    <a class="home-label" href="/">Home</a>
+    <ul class="project-list">
+        <li>
+            <div class="project-item-wrapper">
+                <a onclick="toggleDetails(event, 'skydivingDetails')">NDSU Skydiving Club</a>
+                <div class="project-details" id="skydivingDetails">
+                    <div>Date: 2024</div>
+                    <div>Role: Founder, Web Developer</div>
+                    <div>Client: NDSU Skydiving Club</div>
+                    <div>Link: <a href="https://ndsuskydivingclub.com/" target="_blank" rel="noopener">https://ndsuskydivingclub.com/</a></div>
+                    <div>Objective: Create a website for the NDSU Skydiving Club</div>
+                    <div>Description: Create a minimalistic visual experience to represent the NDSU Skydiving Club</div>
+                    <div>Skills & Tools: HTML, CSS, JavaScript, Github, Github Pages, GoDaddy</div>
+                </div>
+            </div>
+        </li>
+        <li>
+            <div class="project-item-wrapper">
+                <a onclick="toggleDetails(event, 'pathwayDetails')">Pathway Ventures</a>
+                <div class="project-details" id="pathwayDetails">
+                    <div>Date: 2024 - 2025</div>
+                    <div>Role: Vice President, Director of Marketing & IT</div>
+                    <div>Client: Pathway Ventures</div>
+                    <div>Link: <a href="https://www.pathwayventuresndsu.com/" target="_blank" rel="noopener">https://www.pathwayventuresndsu.com/</a></div>
+                    <div>Objective: Maintain & update the Pathway Ventures website</div>
+                    <div>Description: Worked with media and webflow to update and upgrade website when needed</div>
+                    <div>Skills & Tools: Webflow, Canva, Assorted Media Tools</div>
+                </div>
+            </div>
+        </li>
+        <li>
+            <div class="project-item-wrapper">
+                <a onclick="toggleDetails(event, 'icorpsDetails')">Great Plains I-CORPS</a>
+                <div class="project-details" id="icorpsDetails">
+                    <div>Date: 2022 - 2023</div>
+                    <div>Role: Web Developer Intern</div>
+                    <div>Client: NSF I-CORPS Great Plains Region</div>
+                    <div>Link: <a href="https://gp-icorps.org/" target="_blank" rel="noopener">https://gp-icorps.org/</a></div>
+                    <div>Objective: Designed and developed a website for the NSF I-CORPS Great Plains Region</div>
+                    <div>Description: Worked Great Plains I-CORPS to start building out their website using WordPress and Elementor</div>
+                    <div>Skills & Tools: WordPress, Elementor, SEO Tools</div>
+                </div>
+            </div>
+        </li>
+        <li>
+            <div class="project-item-wrapper">
+                <a onclick="toggleDetails(event, 'bisonDetails')">Bison Fund</a>
+                <div class="project-details" id="bisonDetails">
+                    <div>Date: 2021 - 2023</div>
+                    <div>Role: Public Relations Officer</div>
+                    <div>Client: Bison Fund</div>
+                    <div>Link: <a href="https://kylerberger.wixsite.com/my-site" target="_blank" rel="noopener">https://kylerberger.wixsite.com/my-site</a></div>
+                    <div>Objective: Update the Bison Fund website</div>
+                    <div>Description: Worked on a Wix website to update when needed, currently discontinued</div>
+                    <div>Skills & Tools: Wix</div>
+                </div>
+            </div>
+        </li>
+        <li>
+            <div class="project-item-wrapper">
+                <a onclick="toggleDetails(event, 'entrepDetails')">NDSU Entrepreneurship Club</a>
+                <div class="project-details" id="entrepDetails">
+                    <div>Date: 2022 - 2025</div>
+                    <div>Role: President</div>
+                    <div>Client: NDSU Entrepreneurship Club</div>
+                    <div>Link: <a href="https://www.instagram.com/ndsuentrepreneurshipclub/" target="_blank" rel="noopener">https://www.instagram.com/ndsuentrepreneurshipclub/</a></div>
+                    <div>Objective: Create content for Instagram and LinkedIn</div>
+                    <div>Description: Promoted club events and activities by creating appealing posts and media</div>
+                    <div>Skills & Tools: Canva, Instagram, LinkedIn</div>
+                </div>
+            </div>
+        </li>
+        <li>
+            <div class="project-item-wrapper">
+                <a onclick="toggleDetails(event, 'cfaDetails')">CFA Institute Research Challenge</a>
+                <div class="project-details" id="cfaDetails">
+                    <div>Date: 2022 - 2023</div>
+                    <div>Role: Team Member</div>
+                    <div>Client: CFA Society Minnesota</div>
+                    <div>Link: <a href="https://www.cfasociety.org/minnesota/society-events/research-challenge" target="_blank" rel="noopener">https://www.cfasociety.org/minnesota/society-events/research-challenge</a></div>
+                    <div>Objective: Pitch Buy, Hold, Sell recommendation for General Mills</div>
+                    <div>Description: Conducted in-depth analysis of General Mills and presented to a panel of industry professionals</div>
+                    <div>Skills & Tools: Due Diligence, Financial Modeling, Excel, DCF</div>
+                </div>
+            </div>
+        </li>
+        <li>
+            <div class="project-item-wrapper">
+                <a onclick="toggleDetails(event, 'caseDetails')">Case Study</a>
+                <div class="project-details" id="caseDetails">
+                    <div>Date: 2024</div>
+                    <div>Role: Analyst</div>
+                    <div>Client: Redacted</div>
+                    <div>Link: #</div>
+                    <div>Objective: Propose 3 sites for the construction of a 100MW AI Data Center</div>
+                    <div>Description: Conducted diligence on data center industry and proposed 3 sites. Report started and completed within 72 hours.</div>
+                    <div>Skills & Tools: Research</div>
+                </div>
+            </div>
+        </li>
+        <li>
+            <div class="project-item-wrapper">
+                <a onclick="toggleDetails(event, 'lettersDetails')">Letters of Love</a>
+                <div class="project-details" id="lettersDetails">
+                    <div>Date: 2024 - 2025</div>
+                    <div>Role: Social Media Manager</div>
+                    <div>Client: NDSU Letters of Love</div>
+                    <div>Link: <a href="https://www.instagram.com/lettersoflovendsu/" target="_blank" rel="noopener">https://www.instagram.com/lettersoflovendsu/</a></div>
+                    <div>Objective: Manage social media accounts for NDSU Letters of Love</div>
+                    <div>Description: Created content for Instagram to promote upcoming events and meetings.</div>
+                    <div>Skills & Tools: Canva, Instagram</div>
+                </div>
+            </div>
+        </li>
+        <li>
+            <div class="project-item-wrapper">
+                <a onclick="toggleDetails(event, 'openledgerDetails')">OpenLedger Ideathon</a>
+                <div class="project-details" id="openledgerDetails">
+                    <div>Date: 2024</div>
+                    <div>Role: Participant</div>
+                    <div>Client: OpenLedger</div>
+                    <div>Link: <a href="https://devpost.com/software/nideo?ref_content=my-projects-tab&ref_feature=my_projects" target="_blank" rel="noopener">https://devpost.com/software/nideo?ref_content=my-projects-tab&ref_feature=my_projects</a></div>
+                    <div>Objective: Create a 5-slide deck for a specialized language model idea + data source</div>
+                    <div>Description: Participated in a fun ideathon over winter break</div>
+                    <div>Skills & Tools: Google Slides</div>
+                </div>
+            </div>
+        </li>
+    </ul>
+
+    <script>
+        function toggleDetails(event, detailsId) {
+            event.preventDefault();
+            const details = document.getElementById(detailsId);
+            const listItem = event.target.closest('li');
+            details.classList.toggle('show');
+            listItem.classList.toggle('expanded');
+        }
+    </script>
+</body>
+</html>
+

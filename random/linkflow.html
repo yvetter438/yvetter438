@@ -80,10 +80,28 @@
             background: url('MOSHED-2025-6-3-3-10-51.gif') center center/cover no-repeat;
             opacity: 0.5; /* adjust for readability */
         }
+
+        .back-arrow {
+            position: fixed;
+            top: 20px;
+            left: 20px;
+            color: #00f2ff;
+            text-decoration: none;
+            font-size: 2em;
+            transition: all 0.3s ease;
+            z-index: 100;
+        }
+
+        .back-arrow:hover {
+            color: #e0e0e0;
+            transform: translateX(-5px);
+            text-shadow: 0 0 10px rgba(0, 191, 255, 0.5);
+        }
     </style>
 </head>
 <body>
     <div class="bg-gif"></div>
+    <a href="../index.html" class="back-arrow">←</a>
     <h1>LinkFlow</h1>
     <p>A stream of links to things I've read</p>
 
