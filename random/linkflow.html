@@ -3,111 +3,170 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- Favicon -->
-    <link rel="icon" type="image/svg+xml" href="image2vector.svg">
-    <link rel="alternate icon" type="image/png" href="image2vector.svg">
+    <link rel="icon" type="image/svg+xml" href="../assets/image2vector.svg">
     <title>Yannick Vetter</title>
     <style>
         body {
-            background: #0a0a0a;
-            color: #e0e0e0;
-            font-family: 'Courier New', monospace;
-            max-width: 800px;
+            margin: 0;
+            font-family: sans-serif;
+            background: #fff;
+            color: #111;
+            padding: 80px 32px 32px;
+            box-sizing: border-box;
+            min-height: 100vh;
+        }
+
+        .home-label {
+            position: fixed;
+            top: 24px;
+            left: 32px;
+            font-size: 1.1em;
+            color: #111;
+            opacity: 0.7;
+            letter-spacing: 0.04em;
+            text-decoration: none;
+        }
+
+        .page-content {
+            max-width: 1100px;
             margin: 0 auto;
-            padding: 20px;
-            line-height: 1.6;
+            height: calc(100vh - 112px);
+            display: flex;
+            flex-direction: column;
         }
 
-        h1 {
-            color: #00f2ff;
+        .page-header {
+            flex-shrink: 0;
+            margin-bottom: 32px;
+        }
+
+        .page-title {
+            font-size: 1.3em;
+            margin: 0 0 8px;
             text-align: center;
-            font-size: 2.5em;
-            margin-bottom: 40px;
-            text-shadow: 0 0 10px rgba(0, 191, 255, 0.5);
         }
 
-        p {
-            color: #00f2ff;
+        .page-subtitle {
+            font-size: 0.85em;
+            opacity: 0.7;
             text-align: center;
-            font-size: 1.2em;
+            margin: 0;
         }
 
-        .article-list {
+        .shelves {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            flex: 1;
+            min-height: 0;
+        }
+
+        .shelf {
+            display: flex;
+            flex-direction: column;
+            min-height: 0;
+        }
+
+        .shelf-title {
+            font-size: 1.1em;
+            font-weight: normal;
+            margin: 0 0 16px;
+            opacity: 0.7;
+            letter-spacing: 0.04em;
+            flex-shrink: 0;
+        }
+
+        .shelf-scroll {
+            flex: 1;
+            overflow-y: auto;
+            min-height: 0;
+            padding-right: 8px;
+        }
+
+        .item-list {
             list-style: none;
             padding: 0;
-        }
-
-        .article-item {
-            margin-bottom: 30px;
-            padding: 15px;
-            border-left: 3px solid #00f2ff;
-            transition: all 0.3s ease;
-        }
-
-        .article-item:hover {
-            background-color: rgba(0, 191, 255, 0.1);
-            transform: translateX(10px);
-        }
-
-        .article-link {
-            color: #e0e0e0;
-            text-decoration: none;
+            margin: 0;
             font-size: 1.1em;
         }
 
-        .article-link:hover {
-            color: #00f2ff;
+        .item-list li {
+            margin-bottom: 18px;
         }
 
-        .date {
-            color: #666;
-            font-size: 0.9em;
-            margin-top: 5px;
+        .item-wrapper {
+            border-right: 1px solid #111;
+            padding: 16px 20px;
+            text-align: left;
         }
 
-        .notes {
-            color: #888;
-            font-size: 0.9em;
-            margin-top: 5px;
+        .item-list a,
+        .item-title {
+            color: #111;
+            text-decoration: none;
+            transition: text-decoration 0.2s;
+            display: block;
+        }
+
+        .item-list a:hover {
+            text-decoration: underline;
+        }
+
+        .item-meta {
+            font-size: 0.65em;
+            line-height: 1.8;
+            margin-top: 8px;
+            opacity: 0.7;
+        }
+
+        .item-notes {
             font-style: italic;
         }
 
-        .bg-gif {
-            position: fixed;
-            top: 0; left: 0; width: 100vw; height: 100vh;
-            z-index: -1;
-            pointer-events: none;
-            background: url('MOSHED-2025-6-3-3-10-51.gif') center center/cover no-repeat;
-            opacity: 0.5; /* adjust for readability */
-        }
+        @media (max-width: 768px) {
+            body {
+                padding: 80px 20px 32px;
+            }
 
-        .back-arrow {
-            position: fixed;
-            top: 20px;
-            left: 20px;
-            color: #00f2ff;
-            text-decoration: none;
-            font-size: 2em;
-            transition: all 0.3s ease;
-            z-index: 100;
-        }
+            .page-content {
+                height: auto;
+            }
 
-        .back-arrow:hover {
-            color: #e0e0e0;
-            transform: translateX(-5px);
-            text-shadow: 0 0 10px rgba(0, 191, 255, 0.5);
+            .shelves {
+                grid-template-columns: 1fr;
+                gap: 48px;
+            }
+
+            .shelf-scroll {
+                max-height: 60vh;
+            }
         }
     </style>
 </head>
 <body>
-    <div class="bg-gif"></div>
-    <a href="../index.html" class="back-arrow">←</a>
-    <h1>LinkFlow</h1>
-    <p>A stream of links to things I've read</p>
+    <a class="home-label" href="/">Home</a>
+    <div class="page-content">
+        <div class="page-header">
+            <h1 class="page-title">Digital Bookshelf</h1>
+            <p class="page-subtitle">Things I've read online and on the page</p>
+        </div>
 
-    <ul class="article-list" id="articleList">
-        <!-- Articles will be loaded here -->
-    </ul>
+        <div class="shelves">
+            <section class="shelf">
+                <h2 class="shelf-title">Articles</h2>
+                <div class="shelf-scroll">
+                    <ul class="item-list" id="articleList"></ul>
+                </div>
+            </section>
+
+            <section class="shelf">
+                <h2 class="shelf-title">Books</h2>
+                <div class="shelf-scroll">
+                    <ul class="item-list" id="bookList"></ul>
+                </div>
+            </section>
+        </div>
+    </div>
 
     <script>
         // Hardcoded articles
@@ -1281,20 +1340,78 @@
             }
         ];
 
-        // Render articles
-        function renderArticles(articles) {
-            const articleList = document.getElementById('articleList');
-            articleList.innerHTML = articles.map(article => `
-                <li class="article-item">
-                    <a href="${article.url}" class="article-link" target="_blank">${article.title}</a>
-                    <div class="date">${article.date}</div>
-                    ${article.notes ? `<div class="notes">${article.notes}</div>` : ''}
+        const books = [
+            /*
+            Template: Enter at top of list
+            {
+                title: "",
+                author: "",
+                date: "Month Day, 2025",
+                notes: ""
+            },
+            */
+            { title: "Why Do So Many Incompetent Men Become Leaders?", author: "Tomas Chamorro-Premuzic", date: "", notes: "" },
+            { title: "Different: Escaping the Competitive Herd", author: "Youngme Moon", date: "", notes: "" },
+            { title: "Hooked: How to Build Habit-Forming Products", author: "Nir Eyal", date: "", notes: "" },
+            { title: "Four Thousand Weeks: Time Management for Mortals", author: "Oliver Burkeman", date: "", notes: "" },
+            { title: "Buddhism: The Religion of No-Religion", author: "Alan Watts", date: "", notes: "" },
+            { title: "The Bell Jar", author: "Sylvia Plath", date: "", notes: "" },
+            { title: "Snow Country", author: "Yasunari Kawabata", date: "", notes: "" },
+            { title: "The Power of Now", author: "Eckhart Tolle", date: "", notes: "" },
+            { title: "To Sell is Human: The Surprising Truth About Moving Others", author: "Daniel H. Pink", date: "", notes: "" },
+            { title: "Disrupted: My Misadventure in the Start-Up Bubble", author: "Dan Lyons", date: "", notes: "" },
+            { title: "Brave New World", author: "Aldous Huxley", date: "", notes: "" },
+            { title: "Animal Farm", author: "George Orwell", date: "", notes: "" },
+            { title: "Selling Books with Algorithms", author: "Anna Muenchrath", date: "", notes: "" },
+            { title: "Purple Cow: Transform Your Business by Being Remarkable", author: "Seth Godin", date: "", notes: "" },
+            { title: "The Gap and The Gain: The High Achievers' Guide to Happiness", author: "Dan Sullivan & Benjamin Hardy", date: "", notes: "" },
+            { title: "The Defining Decade: Why Your Twenties Matter", author: "Meg Jay", date: "", notes: "" },
+            { title: "Turning Pro", author: "Steven Pressfield", date: "", notes: "" },
+            { title: "The Hard Thing About Hard Things", author: "Ben Horowitz", date: "", notes: "" },
+            { title: "The Sun and Her Flowers", author: "Rupi Kaur", date: "", notes: "" },
+            { title: "The New Owner: Making the Transition from Employee to Employer", author: "Eric R. Voth & Ron Myers", date: "", notes: "" },
+            { title: "Verified: How to Think Straight, Get Duped Less, and Make Better Decisions about What to Believe Online", author: "Mike Caulfield & Sam Wineburg", date: "", notes: "" },
+            { title: "The Living Company", author: "Arie de Geus", date: "", notes: "" },
+            { title: "The Invisible Hook: The Hidden Economics of Pirates", author: "Peter T. Leeson", date: "", notes: "" },
+            { title: "The Alchemist", author: "Paulo Coelho", date: "", notes: "" },
+            { title: "Management of the Absurd: Paradoxes in Leadership", author: "Richard Farson", date: "", notes: "" },
+            { title: "The Year of Magical Thinking", author: "Joan Didion", date: "", notes: "" },
+            { title: "Finite and Infinite Games", author: "James P. Carse", date: "", notes: "" }
+        ];
+
+        function renderArticles(items) {
+            const list = document.getElementById('articleList');
+            list.innerHTML = items.map(item => `
+                <li>
+                    <div class="item-wrapper">
+                        <a href="${item.url}" target="_blank" rel="noopener">${item.title}</a>
+                        <div class="item-meta">
+                            <div>${item.date}</div>
+                            ${item.notes ? `<div class="item-notes">${item.notes}</div>` : ''}
+                        </div>
+                    </div>
                 </li>
             `).join('');
         }
 
-        // Initial render
+        function renderBooks(items) {
+            const list = document.getElementById('bookList');
+            list.innerHTML = items.map(item => `
+                <li>
+                    <div class="item-wrapper">
+                        <span class="item-title">${item.title}</span>
+                        <div class="item-meta">
+                            ${item.author ? `<div>${item.author}</div>` : ''}
+                            ${item.date ? `<div>${item.date}</div>` : ''}
+                            ${item.notes ? `<div class="item-notes">${item.notes}</div>` : ''}
+                        </div>
+                    </div>
+                </li>
+            `).join('');
+        }
+
         renderArticles(articles);
+        renderBooks(books);
     </script>
 </body>
 </html> 
