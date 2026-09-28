@@ -8,7 +8,7 @@
   var EXPOSED_DIR = 'yvetter438-exposed';
   var THEMED_PATHS = {
     '': true,
-    index.html: true,
+    'index.html': true,
     'work.html': true,
     'experience.html': true,
     'random/linkflow.html': true,
