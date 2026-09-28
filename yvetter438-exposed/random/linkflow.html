@@ -1,0 +1,1315 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/svg+xml" href="../../yvetter438/assets/image2vector.svg">
+    <title>Yannick Vetter — Digital Bookshelf</title>
+    <link rel="stylesheet" href="../css/exposed.css">
+    <script src="../js/gutter.js"></script>
+</head>
+<body class="exposed">
+    <div class="frame-rail frame-rail--left" aria-hidden="true"></div>
+    <div class="frame-rail frame-rail--right" aria-hidden="true"></div>
+    <div class="frame-rail frame-rail--top" aria-hidden="true"></div>
+
+    <a class="corner-nav nav-home" href="../index.html"><span class="tok-tag">&lt;a</span> <span class="tok-attr">href</span><span class="tok-punct">=</span><span class="tok-string">"../index.html"</span><span class="tok-tag">&gt;</span>Home<span class="tok-tag">&lt;/a&gt;</span></a>
+
+    <main class="document-shell">
+        <div class="doctype-bar">
+            <span class="lang">&lt;!DOCTYPE html&gt;</span>
+            <span class="file-path">random/linkflow.html</span>
+        </div>
+        <div class="line-gutter">
+            <div class="gutter" aria-hidden="true"></div>
+            <div class="markup-body">
+    <div class="page-content">
+        <div class="expose-tag expose-indent-1">&lt;div class="page-content"&gt;</div>
+        <div class="page-header">
+            <div class="expose-tag expose-indent-2">&lt;header class="page-header"&gt;</div>
+            <h1 class="page-title"><span class="tok-tag">&lt;h1&gt;</span>Digital Bookshelf<span class="tok-tag">&lt;/h1&gt;</span></h1>
+            <div class="expose-tag expose-indent-3">&lt;p class="page-subtitle"&gt;</div>
+            <p class="page-subtitle">Things I've read online and on the page</p>
+            <div class="expose-tag expose-indent-3 expose-tag--after">&lt;/p&gt;</div>
+            <div class="expose-tag expose-indent-2 expose-tag--after">&lt;/header&gt;</div>
+        </div>
+
+        <div class="expose-tag expose-indent-2">&lt;div class="shelves"&gt;</div>
+        <div class="shelves">
+            <section class="shelf">
+                <div class="expose-tag expose-indent-3">&lt;section class="shelf"&gt;</div>
+                <h2 class="shelf-title">Articles</h2>
+                <div class="expose-tag expose-indent-4">&lt;ul class="item-list" id="articleList"&gt;</div>
+                <div class="shelf-scroll">
+                    <ul class="item-list" id="articleList"></ul>
+                </div>
+                <div class="expose-tag expose-indent-4 expose-tag--after">&lt;/ul&gt;</div>
+                <div class="expose-tag expose-indent-3 expose-tag--after">&lt;/section&gt;</div>
+            </section>
+
+            <section class="shelf">
+                <div class="expose-tag expose-indent-3">&lt;section class="shelf"&gt;</div>
+                <h2 class="shelf-title">Books</h2>
+                <div class="expose-tag expose-indent-4">&lt;ul class="item-list" id="bookList"&gt;</div>
+                <div class="shelf-scroll">
+                    <ul class="item-list" id="bookList"></ul>
+                </div>
+                <div class="expose-tag expose-indent-4 expose-tag--after">&lt;/ul&gt;</div>
+                <div class="expose-tag expose-indent-3 expose-tag--after">&lt;/section&gt;</div>
+            </section>
+        </div>
+        <div class="expose-tag expose-indent-2 expose-tag--after">&lt;/div&gt;</div>
+        <div class="expose-tag expose-indent-1 expose-tag--after">&lt;/div&gt;</div>
+    </div>
+            </div>
+        </div>
+    </main>
+
+    <script>
+        // Hardcoded articles
+        const articles = [
+            /*
+            Template: Enter at top of list
+            {
+                title: "",
+                url: "",
+                date: "Month Day, 2025",
+                notes: ""
+            },
+            {
+                title: "",
+                url: "",
+                date: "Month Day, 2025",
+                notes: ""
+            },
+            */
+            {
+                title: "Founders are using creative accounting to boost lofty ‘ARR’—the hottest startup metric in Silicon Valley",
+                url: "https://fortune.com/2025/09/28/how-is-arr-calculated-startups-venture/?utm_content=socialShare_null&utm_medium=email&utm_campaign=social_share",
+                date: "October 10, 2025",
+                notes: ""
+            },
+            {
+                title: "Food delivery startup Yumso helps diners just say ‘no’ to Gen. Tso’s chicken, ‘yes’ to authentic dishes",
+                url: "https://www.geekwire.com/2018/yumso-inc/",
+                date: "October 10, 2025",
+                notes: ""
+            },
+            {
+                title: "Students Who Are Chronically Late to Class",
+                url: "https://www.facultyfocus.com/articles/effective-classroom-management/students-who-are-chronically-late-to-class/",
+                date: "October 9, 2025",
+                notes: ""
+            },
+            {
+                title: "Richard Feynman’s Love Letter to His Wife, Sixteen Months After Her Death",
+                url: "https://fs.blog/richard-feynman-love-letter/",
+                date: "October 9, 2025",
+                notes: ":/"
+            },
+            {
+                title: "Undisrupted Hubspot's reflections disrupted by Dan Lyons",
+                url: "https://www.linkedin.com/pulse/undisrupted-hubspots-reflections-disrupted-dan-lyons-dharmesh-shah/",
+                date: "October 5, 2025",
+                notes: ""
+            },
+            {
+                title: "Dissed and dismissed by Hubspot, disrupted by Dan Lyons tells all",
+                url: "https://www.cmswire.com/digital-marketing/dissed-and-dismissed-by-hubspot-disrupted-by-dan-lyons-tells-all/",
+                date: "October 5, 2025",
+                notes: ""
+            },
+            {
+                title: "When comes age bias, tech companies don't even bother lying",
+                url: "https://www.linkedin.com/pulse/when-comes-age-bias-tech-companies-dont-even-bother-lie-dan-lyons/",
+                date: "October 5, 2025",
+                notes: ""
+            },
+            {
+                title: "An MVP is not a cheaper product, it's about smart learning",
+                url: "https://www.forbes.com/sites/steveblank/2013/07/22/an-mvp-is-not-a-cheaper-product-its-about-smart-learning/",
+                date: "October 5, 2025",
+                notes: ""
+            },
+            {
+                title: "How to be smarter than your investors: Continuous customer discovery",
+                url: "https://www.inc.com/steve-blank/how-to-be-smarter-than-your-investors-continuous-customer-discovery.html",
+                date: "October 5, 2025",
+                notes: ""
+            },
+            {
+                title: "Delta State University Student’s Body Found Hanging in Tree, No Foul Play Suspected",
+                url: "https://www.mississippifreepress.org/delta-state-university-students-body-found-hanging-in-tree-no-foul-play-suspected/",
+                date: "September 16, 2025",
+                notes: ""
+            },
+            {
+                title: "Landslide Kills Hundreds in Sudan",
+                url: "https://www.nytimes.com/2025/09/02/world/africa/sudan-landslide.html",
+                date: "September 2, 2025",
+                notes: ""
+            },
+            {
+                title: "Judge Orders Google to Share Search Results to Help Resolve Monopoly",
+                url: "https://www.nytimes.com/2025/09/02/technology/google-search-antitrust-decision.html",
+                date: "September 2, 2025",
+                notes: ""
+            },
+            {
+                title: "How Much of a Threat Does Hamas Still Pose to Israel?",
+                url: "https://www.cfr.org/expert-brief/how-much-threat-does-hamas-still-pose-israel",
+                date: "August 27, 2025",
+                notes: ""
+            },
+            {
+                title: "Macron's three-pronged response to Netanyahu's accusations of recognizing the State of Palestine and the 'anti-Semitic fire'",
+                url: "https://www.lemonde.fr/international/article/2025/08/27/la-riposte-en-trois-temps-de-macron-contre-les-accusations-de-netanyahou-sur-la-reconnaissance-de-l-etat-de-palestine-et-le-feu-antisemite_6635961_3210.html",
+                date: "August 26, 2025",
+                notes: ""
+            },
+            {
+                title: "The Man Behind Bank of America’s $13 Billion Tech Agenda",
+                url: "https://www.wsj.com/articles/the-man-behind-bank-of-americas-13-billion-tech-agenda-3d770a2d",
+                date: "August 26, 2025",
+                notes: ""
+            },
+            {
+                title: "Israeli Troops Targeted a Camera in Gaza Hospital Strike That Killed 20, Army Says",
+                url: "https://www.wsj.com/world/middle-east/israeli-troops-targeted-a-camera-in-gaza-hospital-strike-that-killed-20-army-says-6defd392?mod=hp_lista_pos1",
+                date: "August 26, 2025",
+                notes: ""
+            },
+            {
+                title: "Cracker Barrel Says It’s Going Back to Its Old Logo After Backlash",
+                url: "https://www.wsj.com/business/retail/cracker-barrel-says-its-going-back-to-its-old-logo-after-backlash-6b07a6e5?mod=hp_lead_pos10",
+                date: "August 26, 2025",
+                notes: ""
+            },
+            {
+                title: "These AI-Skilled 20-Somethings Are Making Hundreds of Thousands a Year",
+                url: "https://www.wsj.com/tech/ai/ai-jobs-entry-level-salary-ab2a11c0?mod=hp_lead_pos9",
+                date: "August 26, 2025",
+                notes: "Comical"
+            },
+            {
+                title: "4 Rules for Buying the Best Olive Oil",
+                url: "https://cooking.nytimes.com/article/olive-oil",
+                date: "August 26, 2025",
+                notes: ""
+            },
+            {
+                title: "The Power of 'How Might We': Transforming Complaints into Creative Solutions",
+                url: "https://www.youtube.com/watch?v=6BfIK3suMBo",
+                date: "August 25, 2025",
+                notes: ""
+            },
+            {
+                title: "The surprising power of asking “How Might We”",
+                url: "https://amorebeautifulquestion.com/beginning-great-questions-how-might/",
+                date: "August 25, 2025",
+                notes: ""
+            },
+            {
+                title: "To Fight Trump, Gavin Newsom Acts More Like Him",
+                url: "https://www.wsj.com/politics/policy/to-fight-trump-gavin-newsom-acts-more-like-him-f7186a46?mod=hp_lead_pos7",
+                date: "August 23, 2025",
+                notes: ""
+            },
+            {
+                title: "They’re Rich, They Travel and They Love to Complain",
+                url: "https://www.nytimes.com/2025/08/21/style/olivia-ferney-travel-rich-clients-tiktok.html",
+                date: "August 23, 2025",
+                notes: ""
+            },
+            {
+                title: "After Gaza Famine Report, U.S. Is Mostly Silent and Israel Is Defiant",
+                url: "https://www.nytimes.com/2025/08/23/world/middleeast/gaza-famine-report-us-reaction.html",
+                date: "August 23, 2025",
+                notes: ""
+            },
+            {
+                title: "The Invasivore’s Dilemma",
+                url: "https://www.outsideonline.com/1922351/invasivores-dilemma",
+                date: "August 21, 2025",
+                notes: ""
+            },
+            {
+                title: "Child Care in America Is Broken. Here Are Five Ideas for How to Fix It.",
+                url: "https://www.wsj.com/personal-finance/daycare-prices-solutions-eaff4b24?mod=hp_lead_pos7",
+                date: "August 20, 2025",
+                notes: ""
+            },
+            {
+                title: "With Moves on West Bank and Gaza City, Israel Defies Global Outcry",
+                url: "https://www.nytimes.com/2025/08/20/world/middleeast/israel-hamas-gaza-city.html",
+                date: "August 20, 2025",
+                notes: ""
+            },
+            {
+                title: "See How Texas Republicans Plan to Gain Seats in Congress",
+                url: "https://www.nytimes.com/interactive/2025/07/30/us/politics/texas-gerrymandering-map-redistricting.html",
+                date: "August 20, 2025",
+                notes: "Everything is all so made up"
+            },
+            {
+                title: "I used the ‘cheat on everything’ AI tool and it didn’t help me cheat on anything",
+                url: "https://www.theverge.com/ai-artificial-intelligence/654223/cheat-on-everything-ai",
+                date: "August 20, 2025",
+                notes: "Incompetent"
+            },
+            {
+                title: "National Guard troops appear in Washington DC as mayor rejects Trump's 'authoritarian push'",
+                url: "https://www.bbc.com/news/articles/cy7ypm6zxp2o",
+                date: "August 13, 2025",
+                notes: ""
+            },
+            {
+                title: "Trump orders police-military takeover of Washington D.C.",
+                url: "https://www.wsws.org/en/articles/2025/08/12/guxf-a12.html",
+                date: "August 13, 2025",
+                notes: ""
+            },
+            {
+                title: "#1: The Law of Market Failure",
+                url: "https://www.youtube.com/watch?v=74JNI6RSkME&t=187s",
+                date: "August 12, 2025",
+                notes: ""
+            },
+            {
+                title: "This Israeli startup sees underground. It might also stop terror tunnels",
+                url: "https://www.ynetnews.com/business/article/sysak7r8xl",
+                date: "August 11, 2025",
+                notes: ""
+            },
+            {
+                title: "Israel’s march of folly in Gaza: Leadership failures endanger war goals",
+                url: "https://www.ynetnews.com/opinions-analysis/article/rjz5orhulg",
+                date: "August 11, 2025",
+                notes: ""
+            },
+            {
+                title: "VC Peter Thiel: You can either invest in ‘bits’ or ‘atoms’",
+                url: "https://venturebeat.com/business/vc-peter-thiel-you-can-either-invest-in-bits-or-atoms/",
+                date: "August 11, 2025",
+                notes: ""
+            },
+            {
+                title: "Bits vs. Atoms: Why We Invest in Asset-Light Businesses",
+                url: "https://monkshillventures.medium.com/bits-vs-atoms-why-we-invest-in-asset-light-businesses-6fd505a40fd6",
+                date: "August 11, 2025",
+                notes: ""
+            },
+            {
+                title: "Zelensky Rejects Ceding Territory to Russia After Trump Suggests a Land Swap",
+                url: "https://www.nytimes.com/2025/08/09/world/europe/zelensky-trump-ukraine-russia.html",
+                date: "August 9, 2025",
+                notes: ""
+            },
+            {
+                title: "Vancouver: Disneyland For Drug Addicts",
+                url: "https://www.youtube.com/watch?v=ggfZwBdaiYk",
+                date: "August 9, 2025",
+                notes: "same problem everywhere"
+            },
+            {
+                title: "How Russian Families Live in the North of Russia. With Subtitles. Life in Russia Nowadays",
+                url: "https://www.youtube.com/watch?v=jv5WqK6xe-k",
+                date: "August 9, 2025",
+                notes: ""
+            },
+            {
+                title: "15 Traditional Russian Foods You Must Try",
+                url: "https://www.tripsavvy.com/traditional-russian-foods-4173498",
+                date: "August 9, 2025",
+                notes: ""
+            },
+            {
+                title: "Putin's palace. The story of the world's biggest bribe",
+                url: "https://www.youtube.com/watch?v=T_tFSWZXKN0",
+                date: "August 9, 2025",
+                notes: ""
+            },
+            {
+                title: "Pet Shop Boys ft. Alexei Navalny - Hymn (In memoriam Alexei Navalny) (Official dance mix video)",
+                url: "https://www.youtube.com/watch?v=tQM8sO2dlw4",
+                date: "August 9, 2025",
+                notes: ""
+            },
+            {
+                title: "Who supports Putin? Men, older generations and traditionalists, study shows",
+                url: "https://www.colorado.edu/today/2023/11/30/who-supports-putin-men-older-generations-and-traditionalists-study-shows",
+                date: "August 9, 2025",
+                notes: ""
+            },
+            {
+                title: "Russian opposition leader Alexei Navalny dies in prison",
+                url: "https://www.youtube.com/watch?v=CAvMgUf8nyo",
+                date: "August 9, 2025",
+                notes: ""
+            },
+            {
+                title: "Alexei Navalny, in his own words",
+                url: "https://www.youtube.com/watch?v=qbvHG4zK2aE",
+                date: "August 9, 2025",
+                notes: "RIP"
+            },
+            {
+                title: "Police confirm 1 Fargo murder suspect arrested, another still at large",
+                url: "https://www.inforum.com/news/fargo/police-confirm-fargo-murder-suspect-arrested",
+                date: "August 5, 2025",
+                notes: ""
+            },
+            {
+                title: "Kill Jews, Get Your Own State",
+                url: "https://www.wsj.com/opinion/ghazi-hamad-hamas-palestinian-state-israel-2290c711?mod=hp_opin_pos_2",
+                date: "August 5, 2025",
+                notes: ""
+            },
+            {
+                title: "Big Tech Is Finally Losing",
+                url: "https://www.nytimes.com/2025/06/12/opinion/google-apple-court-antitrust.html",
+                date: "August 5, 2025",
+                notes: ""
+            },
+            {
+                title: "Tech Companies Have Created a Loneliness Doom Loop",
+                url: "https://www.nytimes.com/2025/07/07/opinion/loneliness-ai-social-media.html",
+                date: "August 5, 2025",
+                notes: ""
+            },
+            {
+                title: "Thinking Is Becoming a Luxury Good",
+                url: "https://www.nytimes.com/2025/07/28/opinion/smartphones-literacy-inequality-democracy.html",
+                date: "August 5, 2025",
+                notes: "Why do poor kids spend more time on phones thatn rich ones?"
+            },
+            {
+                title: "Deadly Fargo shootings 'part of ongoing feud,' police chief says",
+                url: "https://www.inforum.com/news/fargo/deadly-fargo-shootings-part-of-ongoing-feud-police-chief-says",
+                date: "August 4, 2025",
+                notes: ""
+            },
+            {
+                title: "Euthymia: Seneca on Achieving Tranquility",
+                url: "https://alyjuma.com/euthymia/",
+                date: "August 3, 2025",
+                notes: ""
+            },
+            {
+                title: "How I built LinkedInScope: a viral AI audit tool with a savage twist",
+                url: "https://www.indiehackers.com/product/linkedinscope?post=0agfsUp7S9YhQs3dGN5o",
+                date: "August 2, 2025",
+                notes: ""
+            },
+            {
+                title: "Growing a scraping API to $10k+MRR in 12 months",
+                url: "https://www.indiehackers.com/post/tech/growing-a-scraping-api-to-10k-mrr-in-12-months-6iF8SJRF4WpciDff9aYi",
+                date: "August 2, 2025",
+                notes: ""
+            },
+            {
+                title: "This chronic side hustler just hit $26k in 30 days",
+                url: "https://www.indiehackers.com/post/tech/this-chronic-side-hustler-just-hit-26k-in-30-days-fYbp8x4WWqltdifUwCZJ",
+                date: "August 2, 2025",
+                notes: "Swift, Superwall, Posthog, influencer marketing, UGC, meta ads, carousels, clipping, ASO/SEO, retainer deals, CPM deals."
+            },
+            {
+                title: "Leaders urge WA legislators to restore homeless encampment program funding",
+                url: "https://www.fox13seattle.com/news/leaders-wa-homeless-program-funding",
+                date: "August 1, 2025",
+                notes: ""
+            },
+            {
+                title: "2 new villages with 100 tiny houses to open in Seattle this fall",
+                url: "https://komonews.com/news/local/2-new-villages-with-100-tiny-houses-to-open-in-seattle-this-fall-lihi-homeless-services-unhoused-path-to-stability-mayor-bruce-harrell",
+                date: "August 1, 2025",
+                notes: ""
+            },
+            {
+                title: "Domestic migration to Seattle falls, ending a decade-long trend",
+                url: "https://www.knkx.org/science/2025-07-27/domestic-migration-california-international-move-seattle-population-trends-west-coast-living",
+                date: "August 1, 2025",
+                notes: ""
+            },
+            {
+                title: "Police find torched car connected to fatal shooting outside University District church",
+                url: "https://komonews.com/news/local/university-district-seattle-homicide-fatal-shooting-pursuit-northwest-church-udistrict-spd-hyundai-elantra-car-found-torched-phinney-ridge",
+                date: "August 1, 2025",
+                notes: ""
+            },
+            {
+                title: "One of Seattle’s Oldest Diners Is Closing After 62 Years",
+                url: "https://seattle.eater.com/restaurant-news/87593/seattle-ravenna-varsity-closing-diner",
+                date: "August 1, 2025",
+                notes: ""
+            },
+            {
+                title: "How GLP-1 weight loss drugs are reshaping the food industry",
+                url: "https://www.fooddive.com/news/food-glp1s-weight-loss-medication-consumer-trends/753940/",
+                date: "August 1, 2025",
+                notes: "Food is a social and cultural experience."
+            },
+            {
+                title: "To win back consumers, food giants need to make better products",
+                url: "https://www.fooddive.com/news/food-innovation-product-quality-oped/745984/",
+                date: "August 1, 2025",
+                notes: ""
+            },
+            {
+                title: "Sector Snapshot: Private Equity Increasingly Hungry for Food and Beverage Industry Deals",
+                url: "https://www.jdsupra.com/legalnews/sector-snapshot-private-equity-9922361/",
+                date: "August 1, 2025",
+                notes: ""
+            },
+            {
+                title: "Seattle’s sizzling beef prices change how some buy, consume meat",
+                url: "https://www.seattletimes.com/business/seattle-sizzling-beef-prices-change-how-some-buy-consume-meat/",
+                date: "August 1, 2025",
+                notes: ""
+            },
+            {
+                title: "Beverages become essential to consumer wellness routines: report",
+                url: "https://www.fooddive.com/news/beverages-health-wellness-hydration-prebiotics-numerator/756429/",
+                date: "August 1, 2025",
+                notes: "Beverage trenches seem brutal"
+            },
+            {
+                title: "Back from the dead: Once discontinued brands get another chance",
+                url: "https://www.fooddive.com/news/back-from-the-dead-once-discontinued-brands-get-another-chance/742615/",
+                date: "August 1, 2025",
+                notes: "What other ways can nostaglia be capitalized?"
+            },
+            {
+                title: "Reinventing a classic: How walnut innovation is powering new product development",
+                url: "https://www.fooddive.com/spons/reinventing-a-classic-how-walnut-innovation-is-powering-new-product-develo/753233/",
+                date: "August 1, 2025",
+                notes: ""
+            },
+            {
+                title: "How frozen foods can help fight climate change",
+                url: "https://www.fooddive.com/news/how-frozen-foods-can-help-fight-climate-change/743384/",
+                date: "August 1, 2025",
+                notes: "No sources or anything provided"
+            },
+            {
+                title: "Bolthouse Farms owner buys kombucha manufacturer Health-Ade for $500M",
+                url: "https://www.fooddive.com/news/beverage-company-generous-brands-buys-kombucha-maker-health-ade/753892/",
+                date: "August 1, 2025",
+                notes: ""
+            },
+            {
+                title: "The Inescapable Sydney Sweeney",
+                url: "https://www.nytimes.com/2025/08/01/style/sydney-sweeney-jeans-american-eagle-ad.html",
+                date: "August 1, 2025",
+                notes: ""
+            },
+            {
+                title: "For Some, Return of Presidential Fitness Test Revives Painful Memories",
+                url: "https://www.nytimes.com/2025/08/01/well/trump-presidential-fitness-test.html",
+                date: "August 1, 2025",
+                notes: ""
+            },
+            {
+                title: "Hamas Will Never Surrender",
+                url: "https://www.wsj.com/opinion/hamas-will-never-surrender-middle-east-war-israel-a265cf41",
+                date: "August 1, 2025",
+                notes: ""
+            },
+            {
+                title: "Democrats Against a Higher Minimum Wage",
+                url: "https://www.wsj.com/opinion/d-c-city-council-minimum-wage-tipped-workers-a10f9063?mod=opinion_lead_pos3",
+                date: "August 1, 2025",
+                notes: "Well, well, well."
+            },
+            {
+                title: "Congo Braces for HIV Surge After U.S. Funding Stops",
+                url: "https://www.wsj.com/world/africa/us-funding-cuts-aids-congo-c3c35e56?mod=world_feat7_africa_pos3",
+                date: "August 1, 2025",
+                notes: ""
+            },
+            {
+                title: "Trump’s Nuclear Submarine Message to Russia",
+                url: "https://www.wsj.com/opinion/donald-trump-nuclear-submarines-russia-dmitry-medvedev-e0ed310f",
+                date: "August 1, 2025",
+                notes: ""
+            },
+            {
+                title: "The One Thing No One Seems to Be Talking About With That Coldplay Couple: Their Ages",
+                url: "https://www.wsj.com/lifestyle/relationships/the-one-thing-no-one-seems-to-be-talking-about-with-that-coldplay-couple-their-ages-ea7f1661?mod=WTRN_pos5",
+                date: "August 1, 2025",
+                notes: ""
+            },
+            {
+                title: "Thanks for Your $1 Billion Job Offer, Mark Zuckerberg. I’m Gonna Pass.",
+                url: "https://www.wsj.com/tech/ai/meta-zuckerberg-ai-recruiting-fail-e6107555?mod=hp_lead_pos8",
+                date: "August 1, 2025",
+                notes: ""
+            },
+            {
+                title: "In a Country Trump Says Nobody’s Heard Of, Tariffs Bring Chaos",
+                url: "https://www.wsj.com/world/africa/lesotho-tariffs-state-of-disaster-87c17f46?mod=hp_lead_pos9",
+                date: "August 1, 2025",
+                notes: ""
+            },
+            {
+                title: "How To Write Product Descriptions That Don’t Suck (Copywriting Tips For eCommerce)",
+                url: "https://www.youtube.com/watch?v=LrNhsXnvEtw",
+                date: "July 28, 2025",
+                notes: ""
+            },
+            {
+                title: "Identifying Customer Needs | Big Think",
+                url: "https://www.youtube.com/watch?v=yVCZ-7xSsCw&t=300s",
+                date: "July 28, 2025",
+                notes: ""
+            },
+            {
+                title: "Here's an exclusive look at the pitch deck a law firm CEO used to raise $3.5 million to rewire how people find lawyers",
+                url: "https://www.businessinsider.com/openlaw-uber-for-legal-services-startup-funding-pitch-deck-2025-7",
+                date: "July 28, 2025",
+                notes: ""
+            },
+            {
+                title: "For Zohran Mamdani, Food Is Personal, Political, and Powerful",
+                url: "https://www.bonappetit.com/story/zohran-mamdani-interview-mayoral-election",
+                date: "July 28, 2025",
+                notes: ""
+            },
+            {
+                title: "We Tasted 11 Sparkling Waters—These Are the Ones Worth Buying",
+                url: "https://www.bonappetit.com/story/best-sparkling-water-taste-test",
+                date: "July 28, 2025",
+                notes: ""
+            },
+            {
+                title: "A Car Crashed Into Mioposto’s Ravenna Pizzeria When It Was Full of Customers",
+                url: "https://seattle.eater.com/restaurant-news/87265/mioposto-pizzeria-car-crash-injuries-july-4",
+                date: "July 28, 2025",
+                notes: ""
+            },
+            {
+                title: "Canned food maker Del Monte declares bankruptcy, seeks buyer",
+                url: "https://www.fooddive.com/news/canned-fruit-and-vegetable-maker-del-monte-foods-declares-bankruptcy-seeks/752181/",
+                date: "July 27, 2025",
+                notes: ""
+            },
+            {
+                title: "Food tech investments slow as AI grabs venture capital attention",
+                url: "https://www.fooddive.com/news/food-tech-vc-investment-startups/750371/",
+                date: "July 27, 2025",
+                notes: ""
+            },
+            {
+                title: "Liquid Death to launch energy drinks, entering $23B category",
+                url: "https://www.fooddive.com/news/liquid-death-to-launch-energy-drinks-entering-23b-category/753337/",
+                date: "July 27, 2025",
+                notes: ""
+            },
+            {
+                title: "How Divers Discovered Sharks in Seattle's Elliott Bay | Mystery Sharks of Seattle | Cascade PBS",
+                url: "https://www.youtube.com/watch?v=Pf6gsb3KCyE",
+                date: "July 27, 2025",
+                notes: ""
+            },
+            {
+                title: "Wonder Announces Acquisition of Grubhub",
+                url: "https://about.grubhub.com/news/wonder-announces-acquisition-of-grubhub/",
+                date: "July 27, 2025",
+                notes: ""
+            },
+            {
+                title: "Wonder — This is how a predatory business works.",
+                url: "https://www.reddit.com/r/astoria/comments/1hvypyy/wonder_this_is_how_a_predatory_business_works/",
+                date: "July 27, 2025",
+                notes: ""
+            },
+            {
+                title: "Third-party delivery regulation issues continue in cities like New York and Seattle",
+                url: "https://www.nrn.com/restaurant-delivery/third-party-delivery-regulation-issues-continue-in-cities-like-new-york-and-seattle",
+                date: "July 27, 2025",
+                notes: "I really had no idea that it was like that in Seattle, lmao"
+            },
+            {
+                title: "Cracker Barrel targeted by Trump-aligned legal group over alleged DEI policies",
+                url: "https://www.nrn.com/family-dining/cracker-barrel-targeted-by-trump-aligned-legal-group-over-alleged-dei-policies",
+                date: "July 27, 2025",
+                notes: ""
+            },
+            {
+                title: "The Hybrid-Electric Plane Maker That Wants to Change the Way We Fly",
+                url: "https://www.wsj.com/lifestyle/travel/marc-allen-electra-ceo-hybrid-plane-d633c97b?mod=series_foeevergreen",
+                date: "July 27, 2025",
+                notes: ""
+            },
+            {
+                title: "Drones, AI and Robot Pickers: Meet the Fully Autonomous Farm",
+                url: "https://www.wsj.com/tech/autonomous-farming-ai-95657bd1?mod=series_foeevergreen",
+                date: "July 27, 2025",
+                notes: ""
+            },
+            {
+                title: "Lab-Grown Meat Goes Upscale With Faux Foie Gras",
+                url: "https://www.wsj.com/arts-culture/food-cooking/lab-grown-foie-gras-vow-db23ab0a?mod=WTRN_pos1",
+                date: "July 27, 2025",
+                notes: ""
+            },
+            {
+                title: "The Robots That Are Taking Over Your Food Delivery",
+                url: "https://www.wsj.com/tech/ai/food-delivery-robots-241fa069?mod=WTRN_pos1",
+                date: "July 27, 2025",
+                notes: ""
+            },
+            {
+                title: "Welcome to the Grocery Store Where Prices Change 100 Times a Day",
+                url: "https://www.wsj.com/business/retail/surge-grocery-prices-electronic-shelf-labels-a3d47701",
+                date: "July 27, 2025",
+                notes: ""
+            },
+            {
+                title: "Trump and EU Reach Tariff Deal, Avoiding Trade War",
+                url: "https://www.wsj.com/economy/trade/trump-says-he-has-a-tariff-deal-with-european-union-avoiding-trade-war-3ca72c5d?mod=hp_lead_pos1",
+                date: "July 27, 2025",
+                notes: ""
+            },
+            {
+                title: "The World Has Too Much Steel, but No One Wants to Stop Making It",
+                url: "https://www.nytimes.com/2025/07/25/business/steel-overcapacity-china.html",
+                date: "July 26, 2025",
+                notes: ""
+            },
+            {
+                title: "France Will Recognize Palestinian Statehood, Macron Says",
+                url: "https://www.nytimes.com/2025/07/24/world/europe/france-palestine-statehood-macron-gaza.html",
+                date: "July 26, 2025",
+                notes: ""
+            },
+            {
+                title: "No Proof Hamas Routinely Stole U.N. Aid, Israeli Military Officials Say",
+                url: "https://www.nytimes.com/2025/07/26/world/middleeast/hamas-un-aid-theft.html",
+                date: "July 26, 2025",
+                notes: ""
+            },
+            {
+                title: "Trump’s Name Is on Contributor List for Epstein Birthday Book",
+                url: "https://www.nytimes.com/2025/07/24/us/politics/trump-epstein-birthday-book.html",
+                date: "July 26, 2025",
+                notes: ""
+            },
+            {
+                title: "Competing Conspiracy Theories Consume Trump’s Washington",
+                url: "https://www.nytimes.com/2025/07/26/us/politics/trump-epstein-obama-conspiracies.html",
+                date: "July 26, 2025",
+                notes: ""
+            },
+            {
+                title: "What Are Diffusers in Photography? (And How to Use Them)",
+                url: "https://photographylife.com/what-are-diffusers-in-photography-and-how-to-use-them",
+                date: "July 26, 2025",
+                notes: ""
+            },
+            {
+                title: "How To Shoot iPhone Food Photography Like A Pro",
+                url: "https://weeattogether.com/blog/2019/07/30/iphone-food-photography/",
+                date: "July 25, 2025",
+                notes: ""
+            },
+            {
+                title: "Are You Making These Five Food Photography Mistakes?",
+                url: "https://digital-photography-school.com/avoid-five-food-photography-mistakes/",
+                date: "July 25, 2025",
+                notes: ""
+            },
+            {
+                title: "From game development and bug bounties to a $40M/yr product",
+                url: "https://www.indiehackers.com/post/tech/from-game-development-and-bug-bounties-to-a-40m-yr-product-fC3IxR2MOffWkBSUZqF4",
+                date: "July 23, 2025",
+                notes: ""
+            },
+            {
+                title: "Startup events are for losers. Why you should skip events and build in public instead.",
+                url: "https://www.indiehackers.com/post/lifestyle/startup-events-are-for-losers-why-you-should-skip-events-and-build-in-public-instead-RKMqWylE52zbUN2UfdXN",
+                date: "July 23, 2025",
+                notes: ""
+            },
+            {
+                title: "Is this the end of “Build in Public”? Here's why top indie hackers are suddenly disappearing.",
+                url: "https://www.indiehackers.com/post/lifestyle/is-this-the-end-of-build-in-public-heres-why-top-indie-hackers-are-suddenly-disappearing-IhSJQBnXNuNwSuNTuz4t",
+                date: "July 23, 2025",
+                notes: ""
+            },
+            {
+                title: "Does over-scheduling or going with the flow work best for indie hackers? Here's how Leila Hormozi, John Rush, and others do it.",
+                url: "https://www.indiehackers.com/post/lifestyle/does-over-scheduling-or-going-with-the-flow-work-best-for-indie-hackers-heres-how-leila-hormozi-john-rush-and-others-do-it-5cPc0jLnsBGGpa1kr1N6",
+                date: "July 23, 2025",
+                notes: ""
+            },
+            {
+                title: "A top content creator got robbed at gunpoint for talking publicly about her crypto holdings",
+                url: "https://www.indiehackers.com/post/creators/a-top-content-creator-got-robbed-at-gunpoint-for-talking-publicly-about-her-crypto-holdings-992gndwLSJVYR5sabsh9",
+                date: "July 23, 2025",
+                notes: ""
+            },
+            {
+                title: "AWS costs every programmer should know",
+                url: "https://david-codes.hatanian.com/2019/06/09/aws-costs-every-programmer-should-now.html",
+                date: "July 21, 2025",
+                notes: "Very expensive"
+            },
+            {
+                title: "Trump’s Tax Law Sweetens Secondary Deals in Venture Capital",
+                url: "https://www.wsj.com/articles/trumps-tax-law-sweetens-secondary-deals-in-venture-capital-38125eea",
+                date: "July 20, 2025",
+                notes: "10 to 15m doesn't seem like that much of a difference."
+            },
+            {
+                title: "The Mysterious Billionaire Behind the OnlyFans Porn Empire",
+                url: "https://www.wsj.com/business/media/only-fans-leonid-radvinsky-profile-706c914d",
+                date: "July 20, 2025",
+                notes: ""
+            },
+            {
+                title: "These Restaurants, Salons and Workouts Are Free for Hot People—if They Post About Them",
+                url: "https://www.wsj.com/style/neon-coat-app-influencers-free-meals-classes-d310564f",
+                date: "July 20, 2025",
+                notes: ""
+            },
+            {
+                title: "U.S. VCs Race to Tap China’s Biotech Innovation",
+                url: "https://www.wsj.com/articles/u-s-vcs-race-to-tap-chinas-biotech-innovation-836b3dd1?mod=tech_feat3_biotech_pos4",
+                date: "July 20, 2025",
+                notes: ""
+            },
+            {
+                title: "The AI Exec Who Isn’t Trying to Become God",
+                url: "https://www.wsj.com/tech/ai/microsoft-ai-9ded6031?mod=tech_feat1_ai_pos1",
+                date: "July 20, 2025",
+                notes: ""
+            },
+            {
+                title: "How Three Friends Built a Multimillion-Dollar Brand by Making Sunscreen Fun Again",
+                url: "https://www.wsj.com/articles/how-three-friends-built-a-multimillion-dollar-brand-by-making-sunscreen-fun-again-3ee42983?mod=lead_feature_below_a_pos1",
+                date: "July 20, 2025",
+                notes: ""
+            },
+            {
+                title: "The Problem With Using Sugar in Soda: The U.S. Doesn’t Make Enough",
+                url: "https://www.wsj.com/business/the-problem-with-using-sugar-in-soda-the-u-s-doesnt-make-enough-b2dbfa17?mod=hp_lead_pos10",
+                date: "July 20, 2025",
+                notes: ""
+            },
+            {
+                title: "Netflix Is Running Out of Worlds to Conquer",
+                url: "https://www.wsj.com/business/media/netflix-is-running-out-of-worlds-to-conquer-8bc98326?mod=hp_lead_pos6",
+                date: "July 20, 2025",
+                notes: ""
+            },
+            {
+                title: "Coldplay, a Viral Kiss-Cam Moment—and a CEO’s Abrupt Resignation",
+                url: "https://www.wsj.com/lifestyle/workplace/coldplay-a-viral-kiss-cam-momentand-a-ceos-abrupt-resignation-89f5017f?mod=hp_lead_pos9",
+                date: "July 20, 2025",
+                notes: ""
+            },
+            {
+                title: "Atlanta’s Growth Streak Has Come to an End",
+                url: "https://www.wsj.com/economy/atlanta-population-growth-ending-32aa642c?mod=hp_lead_pos7",
+                date: "July 20, 2025",
+                notes: ""
+            },
+            {
+                title: "Tattooed Heart: Exploring Thailand’s Sak Yant Culture",
+                url: "https://khiri.com/thailand-sak-yant-culture/",
+                date: "July 19, 2025",
+                notes: ""
+            },
+            {
+                title: "Thailand To Tattoo Tourists: Think Before You Ink",
+                url: "https://www.npr.org/2011/06/20/137228187/thailand-to-tattoo-tourists-think-before-you-ink",
+                date: "July 19, 2025",
+                notes: "What does the state want the foriegn image of Thailand to be?"
+            },
+            {
+                title: "Sak Yant Tattoo in Thailand",
+                url: "https://waywardwayfarer.com/sak-yant-tattoo-thailand/",
+                date: "July 19, 2025",
+                notes: "Why is it so hard to find info on this?"
+            },
+            {
+                title: "A Timeline of What We Know About Trump and Epstein",
+                url: "https://www.nytimes.com/2025/07/17/us/politics/timeline-trump-epstein.html",
+                date: "July 17, 2025",
+                notes: ""
+            },
+            {
+                title: "American Idol Music Supervisor and Her Husband Are Found Slain",
+                url: "https://www.nytimes.com/2025/07/15/arts/american-idol-music-supervisor-killed.html",
+                date: "July 15, 2025",
+                notes: ""
+            },
+            {
+                title: "For Hard-Right Lawmakers, Trump’s Shift on Epstein Is Just the Latest Breach",
+                url: "https://www.nytimes.com/2025/07/15/us/politics/republicans-congress-trump-epstein.html",
+                date: "July 15, 2025",
+                notes: ""
+            },
+            {
+                title: "Eager Sellers and Stony Buyers",
+                url: "www.hbr.org",
+                date: "July 15, 2025",
+                notes: ""
+            },
+            {
+                title: "Mexican Caviar: Foraging and Eating Farty Ant Larvae",
+                url: "https://www.inertianetwork.com/magazine/mexican-caviar-foraging-and-eating-farty-ant-larvae",
+                date: "July 15, 2025",
+                notes: "Want to try this"
+            },
+            {
+                title: "Escamoles",
+                url: "https://www.atlasobscura.com/foods/escamoles-ant-caviar",
+                date: "July 15, 2025",
+                notes: ""
+            },
+            {
+                title: "Why the Lean Start-Up Changes Everything",
+                url: "https://hbr.org/2013/05/why-the-lean-start-up-changes-everything",
+                date: "July 14, 2025",
+                notes: ""
+            },
+            {
+                title: "Four Ex-Jail Officers Are Sentenced in Death of West Virginia Inmate",
+                url: "https://www.nytimes.com/2025/07/10/us/west-virginia-jail-beating-officers-sentenced.html",
+                date: "July 10, 2025",
+                notes: ""
+            },
+            {
+                title: "From Girl Boss to No Boss",
+                url: "https://www.nytimes.com/2025/07/10/style/girl-boss-lean-in-ambition.html",
+                date: "July 1, 2025",
+                notes: ""
+            },
+            {
+                title: "Texas County Flagged Need for Flood Alarm Months Before Tragedy",
+                url: "https://www.nytimes.com/2025/07/10/us/politics/texas-flood-alarm-system.html",
+                date: "July 10, 2025",
+                notes: ""
+            },
+            {
+                title: "Eyeglasses With Built-In Hearing Aids: This Just Makes Sense",
+                url: "https://www.wsj.com/tech/personal-tech/hearing-aid-eyeglasses-nuance-audio-bdd4c330?mod=author_content_page_1_pos_1",
+                date: "July 10, 2025",
+                notes: "This is so 2010's"
+            },
+            {
+                title: "Don’t Fall in Love With AI, and Other Life Rules for Graduates",
+                url: "https://www.wsj.com/tech/ai/job-market-ai-graduates-762c79ed?mod=author_content_page_1_pos_3",
+                date: "July 10, 2025",
+                notes: "Last to start college without ChatGPT is crazy to think about."
+            },
+            {
+                title: "How the Houthis Rattled the U.S. Navy—and Transformed Maritime War",
+                url: "https://www.wsj.com/world/middle-east/navy-houthis-maritime-war-5517a127?mod=WTRN_pos1",
+                date: "July 10, 2025",
+                notes: "Can't believe I've never even heard of this before."
+            },
+            {
+                title: "Two Ships Desperately Tried to Fight Off Houthi Attacks. Help Never Arrived.",
+                url: "https://www.wsj.com/world/middle-east/two-ships-desperately-tried-to-fight-off-houthi-attacks-help-never-arrived-c400a2a8?mod=hp_lead_pos7",
+                date: "July 10, 2025",
+                notes: "How they get the drone footage of everything?!"
+            },
+            {
+                title: "Here’s a Tip to Companies: Beware of Promoting AI in Products",
+                url: "https://www.wsj.com/tech/ai/ai-advertising-consumer-trust-dc1a1425?mod=tech_feat1_ai_pos2",
+                date: "July 1, 2025",
+                notes: "Kinda obvious but not sure if study evaluated actual sales instead of just opinions."
+            },
+            {
+                title: "Trump Can Sell Public Land to Build a Million Homes",
+                url: "https://www.wsj.com/opinion/trump-can-sell-public-land-to-build-a-million-homes-ea06d1b1?mod=opinion_lead_pos11#comments_sector",
+                date: "July 1, 2025",
+                notes: "Urban sprawl then the cycle repeats."
+            },
+            {
+                title: "Lululemon Sues Costco Over Alleged Knockoff Activewear",
+                url: "https://www.wsj.com/business/retail/lululemon-sues-costco-over-alleged-knockoff-activewear-b9a13284?mod=hp_lead_pos10",
+                date: "July 1, 2025",
+                notes: ""
+            },
+            {
+                title: "Penn to Revoke Transgender Swimmer’s Records and Apologize to Female Swimmers",
+                url: "https://www.wsj.com/us-news/education/lia-thomas-penn-transgender-swimmer-records-f1ba192e?mod=hp_lead_pos4",
+                date: "July 1, 2025",
+                notes: ""
+            },
+            {
+                title: "Satellite Images Capture Activity at Iran’s Fordow Nuclear Site After U.S. Strikes",
+                url: "https://www.wsj.com/world/middle-east/satellite-images-capture-activity-at-irans-fordow-nuclear-site-after-u-s-strikes-ce47f229?mod=hp_lead_pos9",
+                date: "July 1, 2025",
+                notes: ""
+            },
+            {
+                title: "The Network Monetization Map: Aligning Incentives with Revenue",
+                url: "https://breadcrumb.vc/the-network-monetization-map-aligning-incentives-with-revenue-b73c362d1ad5",
+                date: "July 1, 2025",
+                notes: ""
+            },
+            {
+                title: "The AI Content Trap: When Easy Creation Kills Retention",
+                url: "https://breadcrumb.vc/the-ai-content-trap-when-easy-creation-kills-retention-d293d38ae266",
+                date: "July 1, 2025",
+                notes: "Pretty common sense on AI slop."
+            },
+            {
+                title: "Why Marketplaces Fail: The Role of Engagement",
+                url: "https://breadcrumb.vc/why-marketplaces-fail-the-role-of-engagement-e372fb3edd03",
+                date: "July 1, 2025",
+                notes: "Pretty good intro to analyzing marketplaces to be honest."
+            },
+            {
+                title: "Reversible and Irreversible Decisions",
+                url: "https://fs.blog/reversible-irreversible-decisions/",
+                date: "July 1, 2025",
+                notes: "A good plan, violently executed now, is better than a perfect plan next week. - General Patton"
+            },
+            {
+                title: "SENNA: The Social Entertainment App Creating A Mobile Hub For Hip Hop Culture",
+                url: "https://www.forbes.com/sites/julianmitchell/2015/11/11/senna-the-social-entertainment-app-creating-a-mobile-hub-for-hip-hop-culture/",
+                date: "July 1, 2025",
+                notes: "Social Network app from ILT now defunct "
+            },
+            {
+                title: "Recommendation System Infra Basics 1",
+                url: "https://www.youtube.com/watch?v=GncgOIiMII8",
+                date: "June 28, 2025",
+                notes: "Still fuzzy"
+            },
+            {
+                title: "Design an ML Recommendation Engine | System Design",
+                url: "https://www.youtube.com/watch?v=FoSCaue3lcg",
+                date: "June 28, 2025",
+                notes: "I am in for a lot more than I expected."
+            },
+            {
+                title: "Think Twice Before You Click ‘Unsubscribe’",
+                url: "https://www.wsj.com/tech/cybersecurity/unsubscribe-email-security-38b40abf?mod=personal-tech_more_article_pos4",
+                date: "June 27, 2025",
+                notes: ""
+            },
+            {
+                title: "Alexa! Can This Amazon Executive Make You Cool Again?",
+                url: "https://www.wsj.com/tech/amazon-alexa-plans-ai-panos-panay-0e6de132?mod=personal-tech_more_article_pos7",
+                date: "June 27, 2025",
+                notes: "Seattle living"
+            },
+            {
+                title: "The $1,999 Liberty Phone Is Made in America. Its Creator Explains How.",
+                url: "https://www.wsj.com/tech/personal-tech/liberty-phone-purism-made-in-america-b4074c89?mod=personal-tech_news_article_pos2",
+                date: "June 27, 2025",
+                notes: "Made in China bruh"
+            },
+            {
+                title: "Automating Legal Consulting",
+                url: "https://stvp.stanford.edu/clips/automating-legal-consulting/",
+                date: "June 26, 2025",
+                notes: ""
+            },
+            {
+                title: "Seattle's Most Iconic Neighborhood | Capitol Hill Washington",
+                url: "https://www.youtube.com/watch?v=0C-bzlby1P0",
+                date: "June 25, 2025",
+                notes: "Didn't know about the north side."
+            },
+            {
+                title: "Nectar Social buzzes out of stealth with $10.6 million backing from GV and True Ventures",
+                url: "https://fortune.com/2025/06/05/nectar-social-buzzes-out-of-stealth-with-10-6-million-backing-from-gv-and-true-ventures/",
+                date: "June 14, 2025",
+                notes: ""
+            },
+            {
+                title: "Nectar Social Launches From Stealth With $10.6M in Funding",
+                url: "https://www.builtinseattle.com/articles/nectar-social-raises-10m-funding-20350609",
+                date: "June 14, 2025",
+                notes: "Women founding team"
+            },
+            {
+                title: "Defense Tech Company MORSE Corp Opens Seattle Office",
+                url: "https://www.builtinseattle.com/articles/morse-corp-seattle-office-opening-20260609",
+                date: "June 14, 2025",
+                notes: "DoD"
+            },
+            {
+                title: "AI Construction Platform AIM Raises $50M in Funding",
+                url: "https://www.builtinseattle.com/articles/aim-raises-50m-funding-20250612",
+                date: "June 14, 2025",
+                notes: "What does planetary scae, terraforming infrastructre entail?"
+            },
+            {
+                title: "Anysphere CEO on Cursor Being Valued at $9.9 Billion",
+                url: "https://www.youtube.com/watch?v=S_5DhptpI6g",
+                date: "June 13, 2025",
+                notes: "Should do more research on how cursor actually works. It's not just LLM calls."
+            },
+            {
+                title: "my startup is failing and I don't know what to do",
+                url: "https://www.youtube.com/watch?v=A6NT4vnhaSQ",
+                date: "June 13, 2025",
+                notes: "Always good to hear about other people realizing that that product they are building isn't a fit for a startup with the goal of making millions and millions."
+            },
+            {
+                title: "Good News for College Students: You May See a Dip in Student Loan Rates",
+                url: "https://www.nytimes.com/2025/06/13/your-money/federal-student-loans-interest-rates.html",
+                date: "June 13, 2025",
+                notes: "I should really look into this. I didn't realize how financially illterate I lowkey am."
+            },
+            {
+                title: "Welcome to Campus. Here’s Your ChatGPT.",
+                url: "https://www.nytimes.com/2025/06/07/technology/chatgpt-openai-colleges.html",
+                date: "June 13, 2025",
+                notes: "Personal chaatbots with all of your personal information would be interesting, almost like a second opinon for your brain."
+            },
+            {
+                title: "What We Know About the ‘No Kings’ Protests on Saturday",
+                url: "https://www.nytimes.com/2025/06/13/us/no-kings-protest-trump.html",
+                date: "June 13, 2025",
+                notes: "Saw one of these posters as I walking to campus to get my huskyid. It was on the pole right next to the trail."
+            },
+            {
+                title: "Big Tech Is Finally Losing",
+                url: "https://www.nytimes.com/2025/06/12/opinion/google-apple-court-antitrust.html",
+                date: "June 13, 2025",
+                notes: "Never really thought about Verizon vs At&T as a duolpoly. However I think that big tech's dominance has to do a lot more than with unfair aquisitions."
+            },
+            {
+                title: "Israel Had the Courage to Do What Needed to Be Done",
+                url: "https://www.nytimes.com/2025/06/13/opinion/iran-israel-strikes.html",
+                date: "June 13, 2025",
+                notes: "I need more context on why Isreal and Iran are such enemies. What is going on?"
+            },
+            {
+                title: "Dear SaaStr: Is it Normal for Series A, B and C Investors to Buy Up Previous Seed Investor’s Equity?",
+                url: "https://www.saastr.com/is-it-normal-for-series-a-investors-to-buy-up-previous-seed-investors-equity/",
+                date: "June 5, 2025",
+                notes: "But can the founders rebuy their equity?"
+            },
+            {
+                title: "The Next Phase of New York City's 'Trash Revolution' Is Here",
+                url: "https://www.nytimes.com/2025/06/02/nyregion/sanitation-bins-garbage-nyc.html",
+                date: "June 2, 2025",
+                notes: "About time..."
+            },
+            {
+                title: "What are your most treasured cookbooks?",
+                url: "https://substack.com/browse/staff-picks/post/146950994",
+                date: "June 2, 2025",
+                notes: ""
+            },
+            {
+                title: "Why Seed Might Become the Only Stage That Matters",
+                url: "https://medium.com/@gjarrosson/why-seed-might-become-the-only-stage-that-matters-a809e8584abe",
+                date: "June 2, 2025",
+                notes: "I've always wondered how big of an advantage VC actually is. Seems to be more marketing from VC's than actually business advantages imo"
+            },
+            {
+                title: "The Restaurant Where Trump Acolytes Go to See and Be Seen",
+                url: "https://www.nytimes.com/2025/06/02/magazine/butterworths-restaurant-washington-trump-maga.html",
+                date: "June 2, 2025",
+                notes: "Such an interesting cultural thing for a restaurant. Almost seems like the iceberg or that lounge from batman."
+            },
+            {
+                title: "Energy Dept. Cancels $3.7 Billion for New Technologies to Lower Emissions",
+                url: "https://www.nytimes.com/2025/05/30/climate/energy-dept-climate-tech-awards-cut.html",
+                date: "June 2, 2025",
+                notes: "Pretty skeptical, why are billions going to mega-corporations for pet projects that could maybe work? Rushed awards too are a negative sign that something isn't right."
+            },
+            {
+                title: "How 'No Tax on Tips' Will Affect Waiters, Drivers and Diners",
+                url: "https://www.nytimes.com/2025/05/21/dining/no-tax-on-tips-bill.html",
+                date: "June 2, 2025",
+                notes: "This is going to introduce so much fraud and abuse unironically. Charge $1 and tip $30."
+            },
+            {
+                title: "How the iPhone Drove Men and Women Apart",
+                url: "https://www.nytimes.com/2025/05/29/opinion/dating-marriage-children-fertility.html",
+                date: "June 2, 2025",
+                notes: "Very valuable to me now. It really is those damn phones. M and W are disconnected."
+            },
+            {
+                title: "A 355-Year-Old Company That Once Owned One-Third of Canada Is Shutting Down",
+                url: "https://www.nytimes.com/2025/06/01/world/canada/canada-hudsons-bay-stores-closing.html",
+                date: "June 2, 2025",
+                notes: ""
+            },
+            {
+                title: "The Delusion of Porn's Harmlessness",
+                url: "https://www.nytimes.com/2025/05/19/opinion/pornography-harm-society.html",
+                date: "June 2, 2025",
+                notes: "Pornography is definetly bad and I think most people would agree with this. I would like to read the book mentioned 'Girl on Girl'"
+            },
+            {
+                title: "Don't Let Trump's Brutality Fool You. The Internationalization of American Schools Is a Real Issue.",
+                url: "https://www.nytimes.com/2025/06/01/opinion/international-students-harvard-trump.html",
+                date: "June 2, 2025",
+                notes: "Raises and intersting perceptive of schools from the POV of social mobility and national unity, article was light on evidence but does bring the question up"
+            },
+            {
+                title: "Can Gen Z's Nostalgia Save Chain Restaurants?",
+                url: "https://www.nytimes.com/2025/06/01/business/chilis-chain-restaurants-popularity-economy.html",
+                date: "June 2, 2025",
+                notes: "Lots of interesting takes in the comment section, invasive species restaurats, chains, notaliga, et."
+            },
+            {
+                title: '10 Strategies for "Managing Up"',
+                url: "https://grad.uw.edu/wp-content/uploads/2019/06/ManagingUpHandout-1.pdf",
+                date: "May 31, 2025",
+                notes: "For when there is a power dynamic in the relationship, advisors, faculty, etc. Basically just be intentional and prepared"
+            },
+            {
+                title: "Seattle's Rainy Reputation Is Well-Deserved",
+                url: "https://weather.com/science/weather-explainers/news/seattle-rainy-reputation",
+                date: "May 31, 2025",
+                notes: "Rainer than Fargo for sure, but relative to other cities just more rainy days but less downpours"
+            },
+            {
+                title: "A Seattle Local's Guide to Surviving the Darkness",
+                url: "https://www.thrillist.com/lifestyle/seattle/a-locals-guide-to-surviving-seattles-darkness-how-to-make-it-through-a-seattle-winter",
+                date: "May 31, 2025",
+                notes: "Basically like a Fargo winter but I should try and be more proactive about it I think"
+            },
+            {
+                title: "Work-Life Integration",
+                url: "https://haas.berkeley.edu/human-resources/work-life-integration/",
+                date: "May 30, 2025",
+                notes: "Like the idea that work-life balance connotates opposing sides that must be equal, not good enough"
+            },
+            {
+                title: "Amazon Is Killing My Sex Life",
+                url: "https://www.damemagazine.com/2014/05/23/amazon-killing-my-sex-life/",
+                date: "May 30, 2025",
+                notes: "From a female perspective, all complaining again about tech bros"
+            },
+            {
+                title: "Loneliness in Washington tops national average",
+                url: "https://www.axios.com/local/seattle/2024/09/30/washington-loneliness-rates-lonely-isolation-health",
+                date: "May 30, 2025",
+                notes: "Washington is about average for america to be honest"
+            },
+            {
+                title: "'Amageddon': How Amazon's culture is taking a toll on Seattle's future",
+                url: "https://www.geekwire.com/2014/commentary-amageddon-seattles-increasingly-obvious-future/",
+                date: "May 30, 2025",
+                notes: ""
+            },
+            {
+                title: "Seattle likely the Worst City for Dating",
+                url: "https://jeffreifman.com/2018/11/08/seattle-likely-the-worst-city-for-dating/",
+                date: "May 30, 2025",
+                notes: "Complainer"
+            },
+            {
+                title: "What Are the Odds of Finding Your Ideal Partner (in Seattle)?",
+                url: "https://jeffreifman.com/2015/03/19/what-are-the-odds-of-finding-your-ideal-partner-in-seattle/",
+                date: "May 30, 2025",
+                notes: "Dumb article"
+            },
+            {
+                title: "Peepless in Seattle: Dating, Friendship, and the Seattle Freeze After Forty",
+                url: "https://jeffreifman.com/2015/03/22/peepless-in-seattle-dating-friendship-and-the-seattle-freeze-after-forty/",
+                date: "May 30, 2025",
+                notes: "Tech bro moves to Seattle and compains on the internet"
+            },
+            {
+                title: "If you weren't born in Seattle or the Northwest, you'll never be one of us",
+                url: "https://www.seattletimes.com/pacific-nw-magazine/if-you-werenrsquot-born-in-seattle-or-the-northwest-yoursquoll-never-be-one-of-us/",
+                date: "May 30, 2025",
+                notes: ""
+            },
+            {
+                title: "The Seattle Freeze",
+                url: "https://www.dailyuw.com/special_sections/the-seattle-freeze/article_5d1ec694-24de-11ed-8355-ebc49114e5a7.html",
+                date: "May 30, 2025",
+                notes: ""
+            },
+            {
+                title: "Seattle Freeze",
+                url: "https://en.wikipedia.org/wiki/Seattle_Freeze",
+                date: "May 30, 2025",
+                notes: "Wikipedia overview of the Seattle Freeze concept"
+            }
+        ];
+
+        const books = [
+            /*
+            Template: Enter at top of list
+            {
+                title: "",
+                author: "",
+                date: "Month Day, 2025",
+                notes: ""
+            },
+            */
+            { title: "Why Do So Many Incompetent Men Become Leaders?", author: "Tomas Chamorro-Premuzic", date: "", notes: "" },
+            { title: "Different: Escaping the Competitive Herd", author: "Youngme Moon", date: "", notes: "" },
+            { title: "Hooked: How to Build Habit-Forming Products", author: "Nir Eyal", date: "", notes: "" },
+            { title: "Four Thousand Weeks: Time Management for Mortals", author: "Oliver Burkeman", date: "", notes: "" },
+            { title: "Buddhism: The Religion of No-Religion", author: "Alan Watts", date: "", notes: "" },
+            { title: "The Bell Jar", author: "Sylvia Plath", date: "", notes: "" },
+            { title: "Snow Country", author: "Yasunari Kawabata", date: "", notes: "" },
+            { title: "The Power of Now", author: "Eckhart Tolle", date: "", notes: "" },
+            { title: "To Sell is Human: The Surprising Truth About Moving Others", author: "Daniel H. Pink", date: "", notes: "" },
+            { title: "Disrupted: My Misadventure in the Start-Up Bubble", author: "Dan Lyons", date: "", notes: "" },
+            { title: "Brave New World", author: "Aldous Huxley", date: "", notes: "" },
+            { title: "Animal Farm", author: "George Orwell", date: "", notes: "" },
+            { title: "Selling Books with Algorithms", author: "Anna Muenchrath", date: "", notes: "" },
+            { title: "Purple Cow: Transform Your Business by Being Remarkable", author: "Seth Godin", date: "", notes: "" },
+            { title: "The Gap and The Gain: The High Achievers' Guide to Happiness", author: "Dan Sullivan & Benjamin Hardy", date: "", notes: "" },
+            { title: "The Defining Decade: Why Your Twenties Matter", author: "Meg Jay", date: "", notes: "" },
+            { title: "Turning Pro", author: "Steven Pressfield", date: "", notes: "" },
+            { title: "The Hard Thing About Hard Things", author: "Ben Horowitz", date: "", notes: "" },
+            { title: "The Sun and Her Flowers", author: "Rupi Kaur", date: "", notes: "" },
+            { title: "The New Owner: Making the Transition from Employee to Employer", author: "Eric R. Voth & Ron Myers", date: "", notes: "" },
+            { title: "Verified: How to Think Straight, Get Duped Less, and Make Better Decisions about What to Believe Online", author: "Mike Caulfield & Sam Wineburg", date: "", notes: "" },
+            { title: "The Living Company", author: "Arie de Geus", date: "", notes: "" },
+            { title: "The Invisible Hook: The Hidden Economics of Pirates", author: "Peter T. Leeson", date: "", notes: "" },
+            { title: "The Alchemist", author: "Paulo Coelho", date: "", notes: "" },
+            { title: "Management of the Absurd: Paradoxes in Leadership", author: "Richard Farson", date: "", notes: "" },
+            { title: "The Year of Magical Thinking", author: "Joan Didion", date: "", notes: "" },
+            { title: "Finite and Infinite Games", author: "James P. Carse", date: "", notes: "" }
+        ];
+
+        function renderArticles(items) {
+            const list = document.getElementById('articleList');
+            list.innerHTML = items.map(item => `
+                <li>
+                    <div class="item-wrapper">
+                        <a href="${item.url}" target="_blank" rel="noopener">${item.title}</a>
+                        <div class="item-meta">
+                            <div>${item.date}</div>
+                            ${item.notes ? `<div class="item-notes">${item.notes}</div>` : ''}
+                        </div>
+                    </div>
+                </li>
+            `).join('');
+        }
+
+        function renderBooks(items) {
+            const list = document.getElementById('bookList');
+            list.innerHTML = items.map(item => `
+                <li>
+                    <div class="item-wrapper">
+                        <span class="item-title">${item.title}</span>
+                        <div class="item-meta">
+                            ${item.author ? `<div>${item.author}</div>` : ''}
+                            ${item.date ? `<div>${item.date}</div>` : ''}
+                            ${item.notes ? `<div class="item-notes">${item.notes}</div>` : ''}
+                        </div>
+                    </div>
+                </li>
+            `).join('');
+        }
+
+        renderArticles(articles);
+        renderBooks(books);
+        if (typeof fillGutter === 'function') fillGutter();
+    </script>
+</body>
+</html> 
