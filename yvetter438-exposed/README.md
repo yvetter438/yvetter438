@@ -1,6 +1,6 @@
 # Yannick Vetter — markup variant
 
-Alternative skin for the portfolio in `../yvetter438/`: same content and navigation, styled like source markup (monospace, line numbers, black and white).
+Alternative skin for the main portfolio: same content and navigation, styled like source markup (monospace, line numbers, black and white). Visitors see this variant on **even** calendar days (local date); odd days use the default look. Routing is handled by `../js/day-theme.js` on shared pages.
 
 ## Pages
 
@@ -11,4 +11,4 @@ Alternative skin for the portfolio in `../yvetter438/`: same content and navigat
 
 ## Assets
 
-Favicon and SVG live in `../yvetter438/assets/`.
+Favicon and SVG live in `../assets/`.
